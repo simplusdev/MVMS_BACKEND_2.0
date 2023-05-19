@@ -29,13 +29,16 @@ public class FleetBusinessService {
         List<Vessel> vessels = vesselDataService.findAll();
         Map<Integer,List<Map<String,Object>>> mapVesselList = new HashMap<>();
         for(Vessel vessel: vessels){
-            Integer fleetId = vessel.getFleet().getIdInt();
-            List<Map<String,Object>> vesselList = (List<Map<String,Object>>) mapVesselList.get(fleetId);
-            if(vesselList==null){
-                vesselList = new ArrayList<>();
+            Fleet fleet = vessel.getFleet();
+            if(fleet!=null) {
+                Integer fleetId = vessel.getFleet().getIdInt();
+                List<Map<String, Object>> vesselList = (List<Map<String, Object>>) mapVesselList.get(fleetId);
+                if (vesselList == null) {
+                    vesselList = new ArrayList<>();
+                }
+                vesselList.add(VesselMapper.getMapWithIdAndNameAndMmsi(vessel));
+                mapVesselList.put(fleetId, vesselList);
             }
-            vesselList.add(VesselMapper.getMapWithIdAndNameAndMmsi(vessel));
-            mapVesselList.put(fleetId,vesselList);
         }
         List<Map<String,Object>> fleetListMap = FleetMapper.getListMap(fleetList);
         for(Map<String,Object> fleetMap : fleetListMap){
