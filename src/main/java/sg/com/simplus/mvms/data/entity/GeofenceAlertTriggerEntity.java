@@ -14,34 +14,35 @@ public class GeofenceAlertTriggerEntity  implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     @Id
-    Integer idInt;
+    private Integer idInt;
 
-    @Column(name = "geofence_id")
-    Integer geofenceIdInt;
+    @ManyToOne( )
+    @JoinColumn(foreignKey = @ForeignKey(name = "geofence_id"), name = "geofence_id")
+    private GeofenceEntity geofence;
 
     @Column(name = "trigger_index")
-    Integer triggerIndexInt;
+    private Integer triggerIndexInt;
 
     @Column(name = "min_length")
-    Double minLengthDbl;
+    private Double minLengthDbl;
 
     @Column(name = "max_length")
-    Double maxLengthDbl;
+    private Double maxLengthDbl;
 
     @Column(name = "min_width")
-    Double minWidthDbl;
+    private Double minWidthDbl;
 
     @Column(name = "max_width")
-    Double maxWidthDbl;
+    private Double maxWidthDbl;
 
     @Column(name = "min_draft")
-    Double minDraftDbl;
+    private Double minDraftDbl;
 
     @Column(name = "max_draft")
-    Double maxDraftDbl;
+    private Double maxDraftDbl;
 
     @Column(name = "timestamp")
-    Date timestampDti;
+    private Date timestampDti;
 
     public Integer getIdInt() {
         return idInt;
@@ -51,12 +52,12 @@ public class GeofenceAlertTriggerEntity  implements Serializable {
         this.idInt = idInt;
     }
 
-    public Integer getGeofenceIdInt() {
-        return geofenceIdInt;
+    public GeofenceEntity getGeofence() {
+        return geofence;
     }
 
-    public void setGeofenceIdInt(Integer geofenceIdInt) {
-        this.geofenceIdInt = geofenceIdInt;
+    public void setGeofence(GeofenceEntity geofence) {
+        this.geofence = geofence;
     }
 
     public Integer getTriggerIndexInt() {

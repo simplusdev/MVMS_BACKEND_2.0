@@ -4,25 +4,25 @@ import java.util.Date;
 
 public class User {
 
-    Integer idInt;
+    private Integer idInt;
 
-    Integer userGroupIdInt;
+    private Integer userGroupIdInt;
 
-    String nameStr;
+    private String nameStr;
 
-    String usernameStr;
+    private String usernameStr;
 
-    String passwordStr;
+    private String passwordStr;
 
-    Boolean activeBln;
+    private Boolean activeBln;
 
-    Integer createdByInt;
+    private Integer createdByInt;
 
-    Integer modifiedByInt;
+    private Integer modifiedByInt;
 
-    Date createdDateDti;
+    private Date createdDateDti;
 
-    Date modifiedDateDti;
+    private Date modifiedDateDti;
 
     public Integer getIdInt() {
         return idInt;

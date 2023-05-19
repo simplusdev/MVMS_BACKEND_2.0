@@ -1,26 +1,29 @@
 package sg.com.simplus.mvms.data.dto;
 
+import sg.com.simplus.mvms.data.entity.VesselEntity;
+
+import java.io.Serializable;
 import java.util.Date;
 
-public class Note {
+public class Note  implements Serializable {
 
-    Integer idInt;
+    private Integer idInt;
 
-    Integer vesselIdInt;
+    private Vessel vessel;
 
-    String titleStr;
+    private String titleStr;
 
-    String descriptionStr;
+    private String descriptionStr;
 
-    String authorStr;
+    private String authorStr;
 
-    Integer createdByInt;
+    private Integer createdByInt;
 
-    Integer modifiedByInt;
+    private Integer modifiedByInt;
 
-    Date createdDateDti;
+    private Date createdDateDti;
 
-    Date modifiedDateDti;
+    private Date modifiedDateDti;
 
     public Integer getIdInt() {
         return idInt;
@@ -30,12 +33,12 @@ public class Note {
         this.idInt = idInt;
     }
 
-    public Integer getVesselIdInt() {
-        return vesselIdInt;
+    public Vessel getVessel() {
+        return vessel;
     }
 
-    public void setVesselIdInt(Integer vesselIdInt) {
-        this.vesselIdInt = vesselIdInt;
+    public void setVessel(Vessel vessel) {
+        this.vessel = vessel;
     }
 
     public String getTitleStr() {

@@ -14,31 +14,31 @@ public class UserSettingEntity  implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     @Id
-    Integer idInt;
+    private Integer idInt;
 
     @Column(name = "user_id")
-    Integer userIdInt;
+    private Integer userIdInt;
 
     @Column(name = "name")
-    String nameStr;
+    private String nameStr;
 
     @Column(name = "config_string")
-    String configStringStr;
+    private String configStringStr;
 
     @Column(name = "used")
-    Integer usedInt;
+    private Integer usedInt;
 
     @Column(name = "created_by")
-    Integer createdByInt;
+    private Integer createdByInt;
 
     @Column(name = "modified_by")
-    Integer modifiedByInt;
+    private Integer modifiedByInt;
 
     @Column(name = "created_date")
-    Date createdDateDti;
+    private Date createdDateDti;
 
     @Column(name = "modified_date")
-    Date modifiedDateDti;
+    private Date modifiedDateDti;
 
     public Integer getIdInt() {
         return idInt;

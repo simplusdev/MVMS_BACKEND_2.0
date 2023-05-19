@@ -14,28 +14,28 @@ public class RouteEntity  implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     @Id
-    Integer idInt;
+    private Integer idInt;
 
     @Column(name = "name")
-    String nameStr;
+    private String nameStr;
 
     @Column(name = "coordinates")
-    String coordinatesStr;
+    private String coordinatesStr;
 
     @Column(name = "deleted")
-    Integer deletedInt;
+    private Integer deletedInt;
 
     @Column(name = "created_by")
-    Integer createdByInt;
+    private Integer createdByInt;
 
     @Column(name = "deleted_by")
-    Integer deletedByInt;
+    private Integer deletedByInt;
 
     @Column(name = "created_date")
-    Date createdDateDti;
+    private Date createdDateDti;
 
     @Column(name = "deleted_date")
-    Date deletedDateDti;
+    private Date deletedDateDti;
 
     public Integer getIdInt() {
         return idInt;

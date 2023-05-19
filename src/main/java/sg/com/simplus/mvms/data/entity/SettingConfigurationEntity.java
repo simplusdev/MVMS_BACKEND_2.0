@@ -16,14 +16,18 @@ public class SettingConfigurationEntity  implements Serializable {
     @Id
     Integer idInt;
 
+    @ManyToOne(fetch = FetchType.LAZY )
+    @JoinColumn(foreignKey = @ForeignKey(name = "setting_data_type_id"), name = "setting_data_type_id")
+    private SettingDataTypeEntity settingDataType;
+
     @Column(name = "property_name")
-    String propertyNameStr;
+    private String propertyNameStr;
 
     @Column(name = "property_value")
-    String propertyValueStr;
+    private String propertyValueStr;
 
     @Column(name = "created_by")
-    Integer createdByInt;
+    private Integer createdByInt;
 
     @Column(name = "modified_by")
     Integer modifiedByInt;
@@ -40,6 +44,14 @@ public class SettingConfigurationEntity  implements Serializable {
 
     public void setIdInt(Integer idInt) {
         this.idInt = idInt;
+    }
+
+    public SettingDataTypeEntity getSettingDataType() {
+        return settingDataType;
+    }
+
+    public void setSettingDataType(SettingDataTypeEntity settingDataType) {
+        this.settingDataType = settingDataType;
     }
 
     public String getPropertyNameStr() {

@@ -4,23 +4,23 @@ import java.util.Date;
 
 public class UserPrivilege {
 
-    Integer idInt;
+    private Integer idInt;
 
-    String codeStr;
+    private String codeStr;
 
-    String nameStr;
+    private String nameStr;
 
-    String descriptionStr;
+    private String descriptionStr;
 
-    Boolean activeBln;
+    private Boolean activeBln;
 
-    Integer createdByInt;
+    private Integer createdByInt;
 
-    Integer modifiedByInt;
+    private Integer modifiedByInt;
 
-    Date createdDateDti;
+    private Date createdDateDti;
 
-    Date modifiedDateDti;
+    private Date modifiedDateDti;
 
     public Integer getIdInt() {
         return idInt;

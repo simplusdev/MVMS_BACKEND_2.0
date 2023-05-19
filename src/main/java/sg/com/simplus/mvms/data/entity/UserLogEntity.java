@@ -14,16 +14,16 @@ public class UserLogEntity  implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     @Id
-    Integer idInt;
+    private Integer idInt;
 
     @Column(name = "user_id")
-    Integer userIdInt;
+    private Integer userIdInt;
 
     @Column(name = "log")
-    String logStr;
+    private String logStr;
 
     @Column(name = "name")
-    Date timestamp;
+    private Date timestamp;
 
     public Integer getIdInt() {
         return idInt;

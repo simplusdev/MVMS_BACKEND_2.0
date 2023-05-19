@@ -14,35 +14,34 @@ public class UserEntity  implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     @Id
-    Integer idInt;
+    private Integer idInt;
 
     @Column(name = "user_group_id")
-    Integer userGroupIdInt;
+    private Integer userGroupIdInt;
 
     @Column(name = "name")
-    String nameStr;
+    private String nameStr;
 
     @Column(name = "username")
-    String usernameStr;
+    private String usernameStr;
 
     @Column(name = "password")
-    String passwordStr;
+    private String passwordStr;
 
     @Column(name = "active")
-    Integer activeInt;
+    private Integer activeInt;
 
     @Column(name = "created_by")
-    Integer createdByInt;
+    private Integer createdByInt;
 
     @Column(name = "modified_by")
-    Integer modifiedByInt;
+    private Integer modifiedByInt;
 
     @Column(name = "created_date")
-    Date createdDateDti;
+    private Date createdDateDti;
 
     @Column(name = "modified_date")
-    Date modifiedDateDti;
-
+    private Date modifiedDateDti;
     public Integer getIdInt() {
         return idInt;
     }

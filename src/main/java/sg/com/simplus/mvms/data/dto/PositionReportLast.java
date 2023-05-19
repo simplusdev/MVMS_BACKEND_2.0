@@ -4,49 +4,49 @@ import java.util.Date;
 
 public class PositionReportLast {
 
-    Integer idInt;
+    private Integer idInt;
 
-    Integer vesselIdInt;
+    private Integer vesselIdInt;
 
-    Integer messageTypeInt;
+    private Integer messageTypeInt;
 
-    Double repeatIndicatorDbl;
+    private Double repeatIndicatorDbl;
 
-    Integer accuracyInt;
+    private Integer accuracyInt;
 
-    Integer reservedInt;
+    private Integer reservedInt;
 
-    Integer regionalInt;
+    private Integer regionalInt;
 
-    Integer csInt;
+    private Integer csInt;
 
-    Integer displayInt;
+    private Integer displayInt;
 
-    Integer dscInt;
+    private Integer dscInt;
 
-    Integer bandInt;
+    private Integer bandInt;
 
-    Integer msg22Int;
+    private Integer msg22Int;
 
-    Integer assignedInt;
+    private Integer assignedInt;
 
-    Integer raimInt;
+    private Integer raimInt;
 
-    Double longitudeDbl;
+    private Double longitudeDbl;
 
-    Double latitudeDbl;
+    private Double latitudeDbl;
 
-    Double speedDbl;
+    private Double speedDbl;
 
-    Double courseDbl;
+    private Double courseDbl;
 
-    String statusStr;
+    private String statusStr;
 
-    Double headingDbl;
+    private Double headingDbl;
 
-    String callsignStr;
+    private String callsignStr;
 
-    Date timestampDti;
+    private Date timestampDti;
 
     public Integer getIdInt() {
         return idInt;

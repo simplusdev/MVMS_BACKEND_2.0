@@ -1,20 +1,21 @@
 package sg.com.simplus.mvms.data.dto;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class VesselCategory {
+public class VesselCategory  implements Serializable {
 
-    Integer idInt;
+    private Integer idInt;
 
-    String nameStr;
+    private String nameStr;
 
-    Integer createdByInt;
+    private Integer createdByInt;
 
-    Integer modifiedByInt;
+    private Integer modifiedByInt;
 
-    Date createdDateDti;
+    private Date createdDateDti;
 
-    Date modifiedDateDti;
+    private Date modifiedDateDti;
 
     public Integer getIdInt() {
         return idInt;

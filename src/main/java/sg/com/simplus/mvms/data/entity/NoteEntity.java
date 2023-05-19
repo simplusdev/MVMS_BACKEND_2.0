@@ -1,5 +1,6 @@
 package sg.com.simplus.mvms.data.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
@@ -14,31 +15,32 @@ public class NoteEntity  implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     @Id
-    Integer idInt;
+    private Integer idInt;
 
-    @Column(name = "vessel_id")
-    Integer vesselIdInt;
+    @ManyToOne( )
+    @JoinColumn(foreignKey = @ForeignKey(name = "vessel_id"), name = "vessel_id")
+    private VesselEntity vessel;
 
     @Column(name = "title")
-    String titleStr;
+    private String titleStr;
 
     @Column(name = "description")
-    String descriptionStr;
+    private String descriptionStr;
 
     @Column(name = "author")
-    String authorStr;
+    private String authorStr;
 
     @Column(name = "created_by")
-    Integer createdByInt;
+    private Integer createdByInt;
 
     @Column(name = "modified_by")
-    Integer modifiedByInt;
+    private Integer modifiedByInt;
 
     @Column(name = "created_date")
-    Date createdDateDti;
+    private Date createdDateDti;
 
     @Column(name = "modified_date")
-    Date modifiedDateDti;
+    private Date modifiedDateDti;
 
     public Integer getIdInt() {
         return idInt;
@@ -48,12 +50,12 @@ public class NoteEntity  implements Serializable {
         this.idInt = idInt;
     }
 
-    public Integer getVesselIdInt() {
-        return vesselIdInt;
+    public VesselEntity getVessel() {
+        return vessel;
     }
 
-    public void setVesselIdInt(Integer vesselIdInt) {
-        this.vesselIdInt = vesselIdInt;
+    public void setVessel(VesselEntity vessel) {
+        this.vessel = vessel;
     }
 
     public String getTitleStr() {

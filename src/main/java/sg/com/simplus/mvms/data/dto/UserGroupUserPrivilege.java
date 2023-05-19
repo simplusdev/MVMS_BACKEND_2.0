@@ -4,15 +4,15 @@ import java.util.Date;
 
 public class UserGroupUserPrivilege {
 
-    Integer idInt;
+    private Integer idInt;
 
-    Integer userGroupIdInt;
+    private Integer userGroupIdInt;
 
-    Integer userPrivilegeIdInt;
+    private Integer userPrivilegeIdInt;
 
-    Integer createdByInt;
+    private Integer createdByInt;
 
-    Date createdDateDti;
+    private Date createdDateDti;
 
     public Integer getIdInt() {
         return idInt;

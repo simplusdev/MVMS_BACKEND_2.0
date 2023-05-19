@@ -4,21 +4,21 @@ import java.util.Date;
 
 public class Route {
 
-    Integer idInt;
+    private Integer idInt;
 
-    String nameStr;
+    private String nameStr;
 
-    String coordinatesStr;
+    private String coordinatesStr;
 
-    Integer deletedInt;
+    private Integer deletedInt;
 
-    Integer createdByInt;
+    private Integer createdByInt;
 
-    Integer deletedByInt;
+    private Integer deletedByInt;
 
-    Date createdDateDti;
+    private Date createdDateDti;
 
-    Date deletedDateDti;
+    private Date deletedDateDti;
 
     public Integer getIdInt() {
         return idInt;

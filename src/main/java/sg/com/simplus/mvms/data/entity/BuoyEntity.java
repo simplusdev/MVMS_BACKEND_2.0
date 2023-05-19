@@ -14,25 +14,25 @@ public class BuoyEntity   implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     @Id
-    Integer idInt;
+    private Integer idInt;
 
     @Column(name = "name")
-    String nameStr;
+    private String nameStr;
 
     @Column(name = "description")
-    String descriptionStr;
+    private String descriptionStr;
 
     @Column(name = "type")
-    String typeStr;
+    private String typeStr;
 
     @Column(name = "longitude")
-    Double longitudeDbl;
+    private Double longitudeDbl;
 
     @Column(name = "latitude")
-    Double latitudeDbl;
+    private Double latitudeDbl;
 
     @Column(name = "timestamp")
-    Date timestampDti;
+    private Date timestampDti;
 
     public Integer getIdInt() {
         return idInt;

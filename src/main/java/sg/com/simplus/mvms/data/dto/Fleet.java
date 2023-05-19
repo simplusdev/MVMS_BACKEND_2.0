@@ -1,15 +1,23 @@
 package sg.com.simplus.mvms.data.dto;
 
-import javax.persistence.Column;
-import java.util.Date;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import sg.com.simplus.mvms.data.entity.VesselEntity;
 
-public class Fleet {
+import javax.persistence.Column;
+import java.io.Serializable;
+import java.util.Date;
+import java.util.List;
+
+public class Fleet  implements Serializable {
     private Integer idInt;
+
+
     private String nameStr;
-    Integer createdByInt;
-    Integer modifiedByInt;
-    Date createdDateDti;
-    Date modifiedDateDti;
+
+    private Integer createdByInt;
+    private Integer modifiedByInt;
+    private Date createdDateDti;
+    private Date modifiedDateDti;
 
 
     public Integer getIdInt() {
@@ -19,6 +27,7 @@ public class Fleet {
     public void setIdInt(Integer idInt) {
         this.idInt = idInt;
     }
+
 
     public String getNameStr() {
         return nameStr;

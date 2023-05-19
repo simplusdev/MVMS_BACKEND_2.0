@@ -1,22 +1,23 @@
 package sg.com.simplus.mvms.data.dto;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Buoy {
+public class Buoy  implements Serializable {
 
-    Integer idInt;
+    private Integer idInt;
 
-    String nameStr;
+    private String nameStr;
 
-    String descriptionStr;
+    private String descriptionStr;
 
-    String typeStr;
+    private String typeStr;
 
-    Double longitudeDbl;
+    private Double longitudeDbl;
 
-    Double latitudeDbl;
+    private Double latitudeDbl;
 
-    Date timestampDti;
+    private Date timestampDti;
 
     public Integer getIdInt() {
         return idInt;

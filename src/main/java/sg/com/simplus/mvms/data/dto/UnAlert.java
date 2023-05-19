@@ -4,11 +4,11 @@ import java.util.Date;
 
 public class UnAlert {
 
-    Integer idInt;
+    private Integer idInt;
 
-    Integer vesselIdInt;
+    private Vessel vessel;
 
-    Date timestampDti;
+    private Date timestampDti;
 
     public Integer getIdInt() {
         return idInt;
@@ -18,12 +18,12 @@ public class UnAlert {
         this.idInt = idInt;
     }
 
-    public Integer getVesselIdInt() {
-        return vesselIdInt;
+    public Vessel getVessel() {
+        return vessel;
     }
 
-    public void setVesselIdInt(Integer vesselIdInt) {
-        this.vesselIdInt = vesselIdInt;
+    public void setVessel(Vessel vessel) {
+        this.vessel = vessel;
     }
 
     public Date getTimestampDti() {

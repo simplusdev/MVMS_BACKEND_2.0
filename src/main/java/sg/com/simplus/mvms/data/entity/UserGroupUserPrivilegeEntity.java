@@ -14,19 +14,19 @@ public class UserGroupUserPrivilegeEntity  implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     @Id
-    Integer idInt;
+    private Integer idInt;
 
     @Column(name = "user_group_id")
-    Integer userGroupIdInt;
+    private Integer userGroupIdInt;
 
     @Column(name = "user_privilege_id")
-    Integer userPrivilegeIdInt;
+    private Integer userPrivilegeIdInt;
 
     @Column(name = "created_by")
-    Integer createdByInt;
+    private Integer createdByInt;
 
     @Column(name = "created_date")
-    Date createdDateDti;
+    private Date createdDateDti;
 
     public Integer getIdInt() {
         return idInt;

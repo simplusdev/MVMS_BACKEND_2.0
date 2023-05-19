@@ -14,22 +14,22 @@ public class VesselCategoryEntity  implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     @Id
-    Integer idInt;
+    private Integer idInt;
 
     @Column(name = "name")
-    String nameStr;
+    private String nameStr;
 
     @Column(name = "created_by")
-    Integer createdByInt;
+    private Integer createdByInt;
 
     @Column(name = "modified_by")
-    Integer modifiedByInt;
+    private Integer modifiedByInt;
 
     @Column(name = "created_date")
-    Date createdDateDti;
+    private Date createdDateDti;
 
     @Column(name = "modified_date")
-    Date modifiedDateDti;
+    private Date modifiedDateDti;
 
 
     public Integer getIdInt() {

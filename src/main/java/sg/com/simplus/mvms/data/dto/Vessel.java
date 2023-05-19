@@ -1,94 +1,100 @@
 package sg.com.simplus.mvms.data.dto;
 
+import sg.com.simplus.mvms.data.entity.FleetEntity;
+
+import java.io.Serializable;
 import java.util.Date;
 
-public class Vessel {
+public class Vessel  implements Serializable {
 
-    Integer idInt;
+    private Integer idInt;
 
-    Integer fleetIdInt;
+    //Integer fleetIdInt;
+    private Fleet fleet;
 
-    String nameStr;
+    private Boolean active;
 
-    String vesselTypeStr;
+    private String nameStr;
 
-    Integer imoNumberInt;
+    private String vesselTypeStr;
 
-    Integer mmsiInt;
+    private Integer imoNumberInt;
 
-    Integer mothershipMmsiInt;
+    private Integer mmsiInt;
 
-    String lastPortStr;
+    private Integer mothershipMmsiInt;
 
-    String lastPortTimeStr;
+    private String lastPortStr;
 
-    String currentPortStr;
+    private String lastPortTimeStr;
 
-    String destinationStr;
+    private String currentPortStr;
 
-    Double lengthDbl;
+    private String destinationStr;
 
-    Double widthDbl;
+    private Double lengthDbl;
 
-    Double draftDbl;
+    private Double widthDbl;
 
-    String flagStr;
+    private Double draftDbl;
 
-    Double deadWeightDbl;
+    private String flagStr;
 
-    String dateOfBuildStr;
+    private Double deadWeightDbl;
 
-    Date timestampDti;
+    private String dateOfBuildStr;
 
-    String projectVesselTypeStr;
+    private Date timestampDti;
 
-    Integer vesselCategoryIdInt;
+    private String projectVesselTypeStr;
 
-    Double grosstonnageDbl;
+    private Integer vesselCategoryIdInt;
 
-    String assignedRouteStr;
+    private Double grosstonnageDbl;
 
-    String alertRecipientsStr;
+    private String assignedRouteStr;
 
-    String callsignStr;
+    private String alertRecipientsStr;
 
-    Double repeatIndicatorDbl;
+    private String callsignStr;
 
-    Integer aisVersionInt;
+    private Double repeatIndicatorDbl;
 
-    Double toBowDbl;
+    private Integer aisVersionInt;
 
-    Double toSternDbl;
+    private Double toBowDbl;
 
-    Double toPortDbl;
+    private Double toSternDbl;
 
-    Double toStarboardDbl;
+    private Double toPortDbl;
 
-    Double draughtDbl;
+    private Double toStarboardDbl;
 
-    String etaStr;
+    private Double draughtDbl;
 
-    Integer dteInt;
+    private String etaStr;
 
-    Integer partnoInt;
+    private Integer dteInt;
 
-    String vendoridStr;
+    private Integer partnoInt;
 
-    Integer modelInt;
+    private String vendoridStr;
 
-    Integer serialInt;
+    private Integer modelInt;
 
-    Integer epfdInt;
+    private Integer serialInt;
 
-    Integer shiptypeInt;
+    private Integer epfdInt;
 
-    Integer createdByInt;
+    private Integer shiptypeInt;
 
-    Integer modifiedByInt;
+    private Integer createdByInt;
 
-    Date createdDateDti;
+    private Integer modifiedByInt;
 
-    Date modifiedDateDti;
+    private Date createdDateDti;
+
+    private Date modifiedDateDti;
 
     public Integer getIdInt() {
         return idInt;
@@ -98,12 +104,20 @@ public class Vessel {
         this.idInt = idInt;
     }
 
-    public Integer getFleetIdInt() {
-        return fleetIdInt;
+    public Boolean getActive() {
+        return active;
     }
 
-    public void setFleetIdInt(Integer fleetIdInt) {
-        this.fleetIdInt = fleetIdInt;
+    public void setActive(Boolean active) {
+        this.active = active;
+    }
+
+    public Fleet getFleet() {
+        return fleet;
+    }
+
+    public void setFleet(Fleet fleet) {
+        this.fleet = fleet;
     }
 
     public String getNameStr() {

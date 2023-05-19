@@ -13,31 +13,31 @@ public class UserPrivilegeEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     @Id
-    Integer idInt;
+    private Integer idInt;
 
     @Column(name = "code")
-    String codeStr;
+    private  String codeStr;
 
     @Column(name = "name")
-    String nameStr;
+    private String nameStr;
 
     @Column(name = "description")
-    String descriptionStr;
+    private String descriptionStr;
 
     @Column(name = "active")
-    Integer activeInt;
+    private Integer activeInt;
 
     @Column(name = "created_by")
-    Integer createdByInt;
+    private Integer createdByInt;
 
     @Column(name = "modified_by")
-    Integer modifiedByInt;
+    private Integer modifiedByInt;
 
     @Column(name = "created_date")
-    Date createdDateDti;
+    private Date createdDateDti;
 
     @Column(name = "modified_date")
-    Date modifiedDateDti;
+    private Date modifiedDateDti;
 
     public Integer getIdInt() {
         return idInt;

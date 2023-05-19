@@ -4,19 +4,19 @@ import java.util.Date;
 
 public class ProjectVesselType {
 
-    Integer idInt;
+    private Integer idInt;
 
-    String vesselTypeStr;
+    private String vesselTypeStr;
 
-    String colorStr;
+    private String colorStr;
 
-    Integer createdByInt;
+    private Integer createdByInt;
 
-    Integer modifiedByInt;
+    private Integer modifiedByInt;
 
-    Date createdDateDti;
+    private Date createdDateDti;
 
-    Date modifiedDateDti;
+    private Date modifiedDateDti;
 
     public Integer getIdInt() {
         return idInt;

@@ -4,23 +4,23 @@ import java.util.Date;
 
 public class UserSetting {
 
-    Integer idInt;
+    private Integer idInt;
 
-    Integer userIdInt;
+    private Integer userIdInt;
 
-    String nameStr;
+    private String nameStr;
 
-    String configStringStr;
+    private String configStringStr;
 
-    Integer usedInt;
+    private Integer usedInt;
 
-    Integer createdByInt;
+    private Integer createdByInt;
 
-    Integer modifiedByInt;
+    private Integer modifiedByInt;
 
-    Date createdDateDti;
+    private Date createdDateDti;
 
-    Date modifiedDateDti;
+    private Date modifiedDateDti;
 
     public Integer getIdInt() {
         return idInt;

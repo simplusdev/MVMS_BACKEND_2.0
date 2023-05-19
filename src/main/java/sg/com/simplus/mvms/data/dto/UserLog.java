@@ -4,13 +4,13 @@ import java.util.Date;
 
 public class UserLog {
 
-    Integer idInt;
+    private Integer idInt;
 
-    Integer userIdInt;
+    private Integer userIdInt;
 
-    String logStr;
+    private String logStr;
 
-    Date timestampDti;
+    private Date timestampDti;
 
     public Integer getIdInt() {
         return idInt;

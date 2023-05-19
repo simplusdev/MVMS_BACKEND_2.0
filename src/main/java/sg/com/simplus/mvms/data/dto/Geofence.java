@@ -4,31 +4,31 @@ import java.util.Date;
 
 public class Geofence {
 
-    Integer idInt;
+    private Integer idInt;
 
-    String nameStr;
+    private String nameStr;
 
-    String descriptionStr;
+    private String descriptionStr;
 
-    String coordinatesStr;
+    private String coordinatesStr;
 
-    Boolean transparentBln;
+    private Boolean transparentBln;
 
-    String typeStr;
+    private String typeStr;
 
-    Double longitudeDbl;
+    private Double longitudeDbl;
 
-    Double latitudeDbl;
+    private Double latitudeDbl;
 
-    Double radiusDbl;
+    private Double radiusDbl;
 
-    String colorStr;
+    private String colorStr;
 
-    Boolean deletedBln;
+    private Boolean deletedBln;
 
-    Date createdDateDti;
+    private Date createdDateDti;
 
-    Date deletedDateDti;
+    private Date deletedDateDti;
 
     public Integer getIdInt() {
         return idInt;

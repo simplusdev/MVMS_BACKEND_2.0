@@ -14,70 +14,71 @@ public class PositionReportLastEntity implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     @Id
-    Integer idInt;
+    private Integer idInt;
 
-    @Column(name = "vessel_id")
-    Integer vesselIdInt;
+    @ManyToOne( )
+    @JoinColumn(foreignKey = @ForeignKey(name = "vessel_id"), name = "vessel_id")
+    private VesselEntity vessel;
 
     @Column(name = "message_type")
-    Integer messageTypeInt;
+    private Integer messageTypeInt;
 
     @Column(name = "repeat_indicator")
-    Double repeatIndicatorDbl;
+    private Double repeatIndicatorDbl;
 
     @Column(name = "accuracy")
-    Integer accuracyInt;
+    private Integer accuracyInt;
 
     @Column(name = "reserved")
-    Integer reservedInt;
+    private Integer reservedInt;
 
     @Column(name = "regional")
-    Integer regionalInt;
+    private Integer regionalInt;
 
     @Column(name = "cs")
-    Integer csInt;
+    private Integer csInt;
 
     @Column(name = "display")
-    Integer displayInt;
+    private Integer displayInt;
 
     @Column(name = "dsc")
-    Integer dscInt;
+    private Integer dscInt;
 
     @Column(name = "band")
-    Integer bandInt;
+    private Integer bandInt;
 
     @Column(name = "msg22")
-    Integer msg22Int;
+    private Integer msg22Int;
 
     @Column(name = "assigned")
-    Integer assignedInt;
+    private Integer assignedInt;
 
     @Column(name = "raim")
-    Integer raimInt;
+    private Integer raimInt;
 
     @Column(name = "longitude")
-    Double longitudeDbl;
+    private Double longitudeDbl;
 
     @Column(name = "latitude")
-    Double latitudeDbl;
+    private Double latitudeDbl;
 
     @Column(name = "speed")
-    Double speedDbl;
+    private Double speedDbl;
 
     @Column(name = "course")
-    Double courseDbl;
+    private Double courseDbl;
 
     @Column(name = "status")
-    String statusStr;
+    private String statusStr;
 
     @Column(name = "heading")
-    Double headingDbl;
+    private Double headingDbl;
 
     @Column(name = "callsign")
-    String callsignStr;
+    private String callsignStr;
 
     @Column(name = "timestamp")
-    Date timestampDti;
+    private Date timestampDti;
 
     public Integer getIdInt() {
         return idInt;
@@ -87,12 +88,12 @@ public class PositionReportLastEntity implements Serializable {
         this.idInt = idInt;
     }
 
-    public Integer getVesselIdInt() {
-        return vesselIdInt;
+    public VesselEntity getVessel() {
+        return vessel;
     }
 
-    public void setVesselIdInt(Integer vesselIdInt) {
-        this.vesselIdInt = vesselIdInt;
+    public void setVessel(VesselEntity vessel) {
+        this.vessel = vessel;
     }
 
     public Integer getMessageTypeInt() {

@@ -4,19 +4,21 @@ import java.util.Date;
 
 public class SettingConfiguration {
 
-    Integer idInt;
+    private Integer idInt;
 
-    String propertyNameStr;
+    private SettingDataType settingDataType;
 
-    String propertyValueStr;
+    private String propertyNameStr;
 
-    Integer createdByInt;
+    private String propertyValueStr;
 
-    Integer modifiedByInt;
+    private Integer createdByInt;
 
-    Date createdDateDti;
+    private Integer modifiedByInt;
 
-    Date modifiedDateDti;
+    private Date createdDateDti;
+
+    private Date modifiedDateDti;
 
     public Integer getIdInt() {
         return idInt;
@@ -24,6 +26,14 @@ public class SettingConfiguration {
 
     public void setIdInt(Integer idInt) {
         this.idInt = idInt;
+    }
+
+    public SettingDataType getSettingDataType() {
+        return settingDataType;
+    }
+
+    public void setSettingDataType(SettingDataType settingDataType) {
+        this.settingDataType = settingDataType;
     }
 
     public String getPropertyNameStr() {

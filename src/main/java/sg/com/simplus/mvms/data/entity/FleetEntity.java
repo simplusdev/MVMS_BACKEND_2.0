@@ -1,10 +1,13 @@
 package sg.com.simplus.mvms.data.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 @Component
 @Entity
@@ -20,16 +23,16 @@ public class FleetEntity implements Serializable {
     private String nameStr;
 
     @Column(name = "created_by")
-    Integer createdByInt;
+    private Integer createdByInt;
 
     @Column(name = "modified_by")
-    Integer modifiedByInt;
+    private Integer modifiedByInt;
 
     @Column(name = "created_date")
-    Date createdDateDti;
+    private Date createdDateDti;
 
     @Column(name = "modified_date")
-    Date modifiedDateDti;
+    private Date modifiedDateDti;
 
     public Integer getIdInt() {
         return idInt;
@@ -38,6 +41,7 @@ public class FleetEntity implements Serializable {
     public void setIdInt(Integer idInt) {
         this.idInt = idInt;
     }
+
 
     public String getNameStr() {
         return nameStr;

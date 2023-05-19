@@ -14,19 +14,20 @@ public class AlertEntity  implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     @Id
-    Integer idInt;
+    private Integer idInt;
 
     @Column(name = "geofence_name")
-    String geofenceNameStr;
+    private String geofenceNameStr;
 
     @Column(name = "alert")
-    String alertStr;
+    private String alertStr;
 
-    @Column(name = "vessel_id")
-    Integer vesselIdInt;
+    @ManyToOne( )
+    @JoinColumn(foreignKey = @ForeignKey(name = "vessel_id"), name = "vessel_id")
+    private VesselEntity vessel;
 
     @Column(name = "timestamp")
-    Date timestampDti;
+    private Date timestampDti;
 
     public Integer getIdInt() {
         return idInt;
@@ -52,12 +53,12 @@ public class AlertEntity  implements Serializable {
         this.alertStr = alertStr;
     }
 
-    public Integer getVesselIdInt() {
-        return vesselIdInt;
+    public VesselEntity getVessel() {
+        return vessel;
     }
 
-    public void setVesselIdInt(Integer vesselIdInt) {
-        this.vesselIdInt = vesselIdInt;
+    public void setVessel(VesselEntity vessel) {
+        this.vessel = vessel;
     }
 
     public Date getTimestampDti() {

@@ -1,18 +1,19 @@
 package sg.com.simplus.mvms.data.dto;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Alert {
+public class Alert implements Serializable {
 
-    Integer idInt;
+    private Integer idInt;
 
-    String geofenceNameStr;
+    private String geofenceNameStr;
 
-    String alertStr;
+    private String alertStr;
 
-    Integer vesselIdInt;
+    private Vessel vessel;
 
-    Date timestampDti;
+    private Date timestampDti;
 
     public Integer getIdInt() {
         return idInt;
@@ -38,12 +39,12 @@ public class Alert {
         this.alertStr = alertStr;
     }
 
-    public Integer getVesselIdInt() {
-        return vesselIdInt;
+    public Vessel getVessel() {
+        return vessel;
     }
 
-    public void setVesselIdInt(Integer vesselIdInt) {
-        this.vesselIdInt = vesselIdInt;
+    public void setVessel(Vessel vessel) {
+        this.vessel = vessel;
     }
 
     public Date getTimestampDti() {

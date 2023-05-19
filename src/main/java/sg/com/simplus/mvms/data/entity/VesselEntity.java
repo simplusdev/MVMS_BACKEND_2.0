@@ -1,5 +1,7 @@
 package sg.com.simplus.mvms.data.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
@@ -14,133 +16,134 @@ public class VesselEntity  implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     @Id
-    Integer idInt;
+    private Integer idInt;
 
-    @Column(name = "fleet_id")
-    Integer fleetIdInt;
+    @ManyToOne(  )
+    @JoinColumn(foreignKey = @ForeignKey(name = "fleet_id"), name = "fleet_id")
+    private FleetEntity fleet;
 
     @Column(name = "name")
-    String nameStr;
+    private String nameStr;
 
     @Column(name = "vessel_type")
-    String vesselTypeStr;
+    private String vesselTypeStr;
 
     @Column(name = "imo_number")
-    Integer imoNumberInt;
+    private Integer imoNumberInt;
 
     @Column(name = "mmsi")
-    Integer mmsiInt;
+    private Integer mmsiInt;
 
     @Column(name = "mothership_mmsi")
-    Integer mothershipMmsiInt;
+    private Integer mothershipMmsiInt;
 
     @Column(name = "last_port")
-    String lastPortStr;
+    private String lastPortStr;
 
     @Column(name = "last_port_time")
-    String lastPortTimeStr;
+    private String lastPortTimeStr;
 
     @Column(name = "current_port")
-    String currentPortStr;
+    private String currentPortStr;
 
     @Column(name = "destination")
-    String destinationStr;
+    private String destinationStr;
 
     @Column(name = "length")
-    Double lengthDbl;
+    private Double lengthDbl;
 
     @Column(name = "width")
-    Double widthDbl;
+    private Double widthDbl;
 
     @Column(name = "draft")
-    Double draftDbl;
+    private Double draftDbl;
 
     @Column(name = "flag")
-    String flagStr;
+    private String flagStr;
 
     @Column(name = "dead_weight")
-    Double deadWeightDbl;
+    private Double deadWeightDbl;
 
     @Column(name = "date_of_build")
-    String dateOfBuildStr;
+    private String dateOfBuildStr;
 
     @Column(name = "timestamp")
-    Date timestampDti;
+    private Date timestampDti;
 
     @Column(name = "project_vessel_type")
-    String projectVesselTypeStr;
+    private String projectVesselTypeStr;
 
     @Column(name = "vessel_category_id")
-    Integer vesselCategoryIdInt;
+    private Integer vesselCategoryIdInt;
 
     @Column(name = "grosstonnage")
-    Double grosstonnageDbl;
+    private Double grosstonnageDbl;
 
     @Column(name = "assigned_route")
-    String assignedRouteStr;
+    private String assignedRouteStr;
 
     @Column(name = "alert_recipients")
-    String alertRecipientsStr;
+    private String alertRecipientsStr;
 
     @Column(name = "callsign")
-    String callsignStr;
+    private String callsignStr;
 
     @Column(name = "repeat_indicator")
-    Double repeatIndicatorDbl;
+    private Double repeatIndicatorDbl;
 
     @Column(name = "ais_version")
-    Integer aisVersionInt;
+    private Integer aisVersionInt;
 
     @Column(name = "to_bow")
-    Double toBowDbl;
+    private Double toBowDbl;
 
     @Column(name = "to_stern")
-    Double toSternDbl;
+    private Double toSternDbl;
 
     @Column(name = "to_port")
-    Double toPortDbl;
+    private Double toPortDbl;
 
     @Column(name = "to_starboard")
-    Double toStarboardDbl;
+    private Double toStarboardDbl;
 
     @Column(name = "draught")
-    Double draughtDbl;
+    private Double draughtDbl;
 
     @Column(name = "eta")
-    String etaStr;
+    private String etaStr;
 
     @Column(name = "dte")
-    Integer dteInt;
+    private Integer dteInt;
 
     @Column(name = "partno")
-    Integer partnoInt;
+    private Integer partnoInt;
 
     @Column(name = "vendorid")
-    String vendoridStr;
+    private String vendoridStr;
 
     @Column(name = "model")
-    Integer modelInt;
+    private Integer modelInt;
 
     @Column(name = "serial")
-    Integer serialInt;
+    private Integer serialInt;
 
     @Column(name = "epfd")
-    Integer epfdInt;
+    private Integer epfdInt;
 
     @Column(name = "shiptype")
-    Integer shiptypeInt;
+    private Integer shiptypeInt;
 
     @Column(name = "created_by")
-    Integer createdByInt;
+    private Integer createdByInt;
 
     @Column(name = "modified_by")
-    Integer modifiedByInt;
+    private Integer modifiedByInt;
 
     @Column(name = "created_date")
-    Date createdDateDti;
+    private Date createdDateDti;
 
     @Column(name = "modified_date")
-    Date modifiedDateDti;
+    private Date modifiedDateDti;
 
     public Integer getIdInt() {
         return idInt;
@@ -150,13 +153,21 @@ public class VesselEntity  implements Serializable {
         this.idInt = idInt;
     }
 
-    public Integer getFleetIdInt() {
-        return fleetIdInt;
+    public FleetEntity getFleet() {
+        return fleet;
     }
 
-    public void setFleetIdInt(Integer fleetIdInt) {
-        this.fleetIdInt = fleetIdInt;
+    public void setFleet(FleetEntity fleet) {
+        this.fleet = fleet;
     }
+
+    //    public Integer getFleetIdInt() {
+//        return fleetIdInt;
+//    }
+//
+//    public void setFleetIdInt(Integer fleetIdInt) {
+//        this.fleetIdInt = fleetIdInt;
+//    }
 
     public String getNameStr() {
         return nameStr;

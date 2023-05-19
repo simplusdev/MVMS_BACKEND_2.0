@@ -4,25 +4,25 @@ import java.util.Date;
 
 public class GeofenceAlertTrigger {
 
-    Integer idInt;
+    private Integer idInt;
 
-    Integer geofenceIdInt;
+    private Geofence geofence;
 
-    Integer triggerIndexInt;
+    private Integer triggerIndexInt;
 
-    Double minLengthDbl;
+    private Double minLengthDbl;
 
-    Double maxLengthDbl;
+    private Double maxLengthDbl;
 
-    Double minWidthDbl;
+    private Double minWidthDbl;
 
-    Double maxWidthDbl;
+    private Double maxWidthDbl;
 
-    Double minDraftDbl;
+    private Double minDraftDbl;
 
-    Double maxDraftDbl;
+    private Double maxDraftDbl;
 
-    Date timestampDti;
+    private Date timestampDti;
 
     public Integer getIdInt() {
         return idInt;
@@ -32,12 +32,12 @@ public class GeofenceAlertTrigger {
         this.idInt = idInt;
     }
 
-    public Integer getGeofenceIdInt() {
-        return geofenceIdInt;
+    public Geofence getGeofence() {
+        return geofence;
     }
 
-    public void setGeofenceIdInt(Integer geofenceIdInt) {
-        this.geofenceIdInt = geofenceIdInt;
+    public void setGeofence(Geofence geofence) {
+        this.geofence = geofence;
     }
 
     public Integer getTriggerIndexInt() {

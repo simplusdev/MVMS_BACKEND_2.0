@@ -4,19 +4,19 @@ import java.util.Date;
 
 public class UserGroup {
 
-    Integer idInt;
+    private Integer idInt;
 
-    String nameStr;
+    private String nameStr;
 
-    Boolean activeBln;
+    private Boolean activeBln;
 
-    Integer createdByInt;
+    private Integer createdByInt;
 
-    Integer modifiedByInt;
+    private Integer modifiedByInt;
 
-    Date createdDateDti;
+    private Date createdDateDti;
 
-    Date modifiedDateDti;
+    private Date modifiedDateDti;
 
     public Integer getIdInt() {
         return idInt;

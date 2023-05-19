@@ -14,43 +14,43 @@ public class GeofenceEntity  implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     @Id
-    Integer idInt;
+    private Integer idInt;
 
     @Column(name = "name")
-    String nameStr;
+    private String nameStr;
 
     @Column(name = "description")
-    String descriptionStr;
+    private String descriptionStr;
 
     @Column(name = "coordinates")
-    String coordinatesStr;
+    private String coordinatesStr;
 
     @Column(name = "transparent")
-    Integer transparentInt;
+    private Integer transparentInt;
 
     @Column(name = "type")
-    String typeStr;
+    private String typeStr;
 
     @Column(name = "longitude")
-    Double longitudeDbl;
+    private Double longitudeDbl;
 
     @Column(name = "latitude")
-    Double latitudeDbl;
+    private Double latitudeDbl;
 
     @Column(name = "radius")
-    Double radiusDbl;
+    private Double radiusDbl;
 
     @Column(name = "color")
-    String colorStr;
+    private String colorStr;
 
     @Column(name = "deleted")
-    Integer deletedInt;
+    private Integer deletedInt;
 
     @Column(name = "created_date")
-    Date createdDateDti;
+    private Date createdDateDti;
 
     @Column(name = "deleted_date")
-    Date deletedDateDti;
+    private Date deletedDateDti;
 
     public Integer getIdInt() {
         return idInt;
