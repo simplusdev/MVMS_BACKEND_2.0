@@ -1,6 +1,7 @@
 package sg.com.simplus.mvms.service.mapperservice;
 
 import sg.com.simplus.mvms.data.dto.Alert;
+import sg.com.simplus.mvms.framework.constant.AuditFields;
 import sg.com.simplus.mvms.framework.engine.DtoMapper;
 
 import java.util.List;
@@ -9,7 +10,7 @@ import java.util.Map;
 public class AlertMapper {
 
     public static  Map<String,Object> getMap(Alert alert){
-         Map<String,Object> result = (Map<String,Object>) new DtoMapper.MapBuilderEngine<Alert>(alert).init().build();
+         Map<String,Object> result = (Map<String,Object>) new DtoMapper.MapBuilderEngine<Alert>(alert, AuditFields.EXCLUDE).init().build();
         return  result;
     }
 

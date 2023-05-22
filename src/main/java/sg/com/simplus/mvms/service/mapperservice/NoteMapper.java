@@ -12,7 +12,7 @@ import java.util.Map;
 public class NoteMapper {
 
     public static  Map<String,Object> getMap(Note note){
-         Map<String,Object> result = (Map<String,Object>) new DtoMapper.MapBuilderEngine<Note>(note).init().build();
+         Map<String,Object> result = (Map<String,Object>) new DtoMapper.MapBuilderEngine<Note>(note, AuditFields.EXCLUDE).init().build();
         return  result;
     }
 

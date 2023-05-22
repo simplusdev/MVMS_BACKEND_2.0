@@ -11,7 +11,7 @@ import java.util.Map;
 public class FleetMapper {
 
     public static  Map<String,Object> getMap(Fleet fleet){
-         Map<String,Object> result = (Map<String,Object>) new DtoMapper.MapBuilderEngine<Fleet>(fleet).init().build();
+         Map<String,Object> result = (Map<String,Object>) new DtoMapper.MapBuilderEngine<Fleet>(fleet, AuditFields.EXCLUDE).init().build();
         return  result;
     }
 
