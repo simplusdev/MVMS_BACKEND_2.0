@@ -42,4 +42,11 @@ public class Constants {
     public static final String ENDPOINT_URI_NOTE_UPDATE = "/note/update";
     public static final String ENDPOINT_URI_NOTE_DELETE_BY_ID = "/note/delete-by-id/{id}";
     public static final String ENDPOINT_URI_NOTE_DELETE_BY_VESSEL_ID = "/note/delete-by-vessel-id/{id}";
+
+    //endpoint for user setting
+    public static final String ENDPOINT_URI_USER_DISPLAY_CONFIGURATION_CREATE = "/user-display-configuration/create";
+    public static final String ENDPOINT_URI_USER_DISPLAY_CONFIGURATION_UPDATE = "/user-display-configuration/update";
+    public static final String ENDPOINT_URI_USER_DISPLAY_CONFIGURATION_DELETE_BY_ID = "/user-display-configuration/delete-by-id";
+    public static final String ENDPOINT_URI_USER_DISPLAY_CONFIGURATION_DELETE_BY_USER_ID = "/user-display-configuration/delete-by-user-id";
+
 }

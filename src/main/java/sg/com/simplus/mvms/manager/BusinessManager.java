@@ -54,6 +54,9 @@ public class BusinessManager {
     public UserBusinessService userBusinessService;
 
     @Autowired
+    public UserSettingBusinessService userSettingBusinessService;
+
+    @Autowired
     public UserLogBusinessService userLogBusinessService;
 
     @Autowired

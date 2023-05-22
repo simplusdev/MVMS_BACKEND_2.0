@@ -6,13 +6,13 @@ public class UserSetting {
 
     private Integer idInt;
 
-    private Integer userIdInt;
+    private User user;
 
     private String nameStr;
 
     private String configStringStr;
 
-    private Integer usedInt;
+    private Boolean usedBln;
 
     private Integer createdByInt;
 
@@ -30,12 +30,12 @@ public class UserSetting {
         this.idInt = idInt;
     }
 
-    public Integer getUserIdInt() {
-        return userIdInt;
+    public User getUser() {
+        return user;
     }
 
-    public void setUserIdInt(Integer userIdInt) {
-        this.userIdInt = userIdInt;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public String getNameStr() {
@@ -54,12 +54,12 @@ public class UserSetting {
         this.configStringStr = configStringStr;
     }
 
-    public Integer getUsedInt() {
-        return usedInt;
+    public Boolean getUsedBln() {
+        return usedBln;
     }
 
-    public void setUsedInt(Integer usedInt) {
-        this.usedInt = usedInt;
+    public void setUsedBln(Boolean usedBln) {
+        this.usedBln = usedBln;
     }
 
     public Integer getCreatedByInt() {

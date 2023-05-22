@@ -15,9 +15,10 @@ public class UserSettingEntity  implements Serializable {
     @Column(name = "id")
     @Id
     private Integer idInt;
-
-    @Column(name = "user_id")
-    private Integer userIdInt;
+    
+    @ManyToOne(  )
+    @JoinColumn(foreignKey = @ForeignKey(name = "user_id"), name = "user_id")
+    private UserEntity user;
 
     @Column(name = "name")
     private String nameStr;
@@ -48,12 +49,12 @@ public class UserSettingEntity  implements Serializable {
         this.idInt = idInt;
     }
 
-    public Integer getUserIdInt() {
-        return userIdInt;
+    public UserEntity getUser() {
+        return user;
     }
 
-    public void setUserIdInt(Integer userIdInt) {
-        this.userIdInt = userIdInt;
+    public void setUser(UserEntity user) {
+        this.user = user;
     }
 
     public String getNameStr() {
