@@ -9,6 +9,7 @@ import sg.com.simplus.mvms.data.entity.PositionReportEntity;
 import sg.com.simplus.mvms.data.repository.PositionReportRepository;
 import sg.com.simplus.mvms.framework.engine.DataServiceEngine;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -18,6 +19,10 @@ public class PositionReportDataService extends DataServiceEngine<PositionReportE
 
     public List<PositionReport> findAll(){
         return toDtoList(positionReportRepository.findAll());
+    }
+
+    public List<PositionReport> findByVesselIdIntAndTimestampDtiBetween(Integer vesselIdInt,Date startDateDti,Date endDateDti ){
+        return toDtoList(positionReportRepository.findByVesselIdIntAndTimestampDtiBetween(vesselIdInt,startDateDti,endDateDti));
     }
 
     public Vessel save(PositionReport positionReport){

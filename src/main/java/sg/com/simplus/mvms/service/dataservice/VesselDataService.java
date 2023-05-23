@@ -1,6 +1,5 @@
 package sg.com.simplus.mvms.service.dataservice;
 
-import org.modelmapper.PropertyMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import sg.com.simplus.mvms.data.dto.Vessel;
@@ -13,18 +12,18 @@ import java.util.List;
 @Service
 public class VesselDataService extends DataServiceEngine<VesselEntity,Vessel> {
     @Autowired
-    VesselRepository fleetRepository;
+    VesselRepository vesselRepository;
 
     public List<Vessel> findAll(){
-        return toDtoList(fleetRepository.findAll() );
+        return toDtoList(vesselRepository.findAll() );
     }
 
     public Vessel save(Vessel vessel){
-       return  toDto(fleetRepository.save(toEntity(vessel)) );
+       return  toDto(vesselRepository.save(toEntity(vessel)) );
     }
 
     public Vessel getById(Integer id){
-        return  toDto(fleetRepository.getById(id) );
+        return  toDto(vesselRepository.getById(id) );
     }
 
     @Override

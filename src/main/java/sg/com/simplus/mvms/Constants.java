@@ -49,4 +49,6 @@ public class Constants {
     public static final String ENDPOINT_URI_USER_DISPLAY_CONFIGURATION_DELETE_BY_ID = "/user-display-configuration/delete-by-id";
     public static final String ENDPOINT_URI_USER_DISPLAY_CONFIGURATION_DELETE_BY_USER_ID = "/user-display-configuration/delete-by-user-id";
 
+    //endpoint for user setting
+    public static final String ENDPOINT_URI_POSITION_REPORT_GET_BY_DATE = "/position-report/get-by-date";
 }
