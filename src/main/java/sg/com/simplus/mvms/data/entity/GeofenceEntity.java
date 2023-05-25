@@ -28,8 +28,9 @@ public class GeofenceEntity  implements Serializable {
     @Column(name = "transparent")
     private Integer transparentInt;
 
-    @Column(name = "type")
-    private String typeStr;
+    @ManyToOne(  )
+    @JoinColumn(foreignKey = @ForeignKey(name = "symbol_type_id"), name = "symbol_type_id")
+    private SymbolTypeEntity symbolType;
 
     @Column(name = "longitude")
     private Double longitudeDbl;
@@ -92,12 +93,12 @@ public class GeofenceEntity  implements Serializable {
         this.transparentInt = transparentInt;
     }
 
-    public String getTypeStr() {
-        return typeStr;
+    public SymbolTypeEntity getSymbolType() {
+        return symbolType;
     }
 
-    public void setTypeStr(String typeStr) {
-        this.typeStr = typeStr;
+    public void setSymbolType(SymbolTypeEntity symbolType) {
+        this.symbolType = symbolType;
     }
 
     public Double getLongitudeDbl() {

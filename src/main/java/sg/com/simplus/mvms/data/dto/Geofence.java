@@ -14,7 +14,7 @@ public class Geofence {
 
     private Boolean transparentBln;
 
-    private String typeStr;
+    private SymbolType symbolType;
 
     private Double longitudeDbl;
 
@@ -70,12 +70,12 @@ public class Geofence {
         this.transparentBln = transparentBln;
     }
 
-    public String getTypeStr() {
-        return typeStr;
+    public SymbolType getSymbolType() {
+        return symbolType;
     }
 
-    public void setTypeStr(String typeStr) {
-        this.typeStr = typeStr;
+    public void setSymbolType(SymbolType symbolType) {
+        this.symbolType = symbolType;
     }
 
     public Double getLongitudeDbl() {
