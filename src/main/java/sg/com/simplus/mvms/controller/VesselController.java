@@ -29,7 +29,7 @@ public class VesselController extends VesselManager {
 	}
 
 	@Transactional
-	@RequestMapping(value = Constants.ENDPOINT_URI_VESSEL_CREATE, method = RequestMethod.POST )
+	@PostMapping(value = Constants.ENDPOINT_URI_VESSEL_CREATE  )
 	public  ResponseEntity<Object> createVessel(
 			@RequestBody Vessel vessel) {
 		return ResponseMvms.buildResponse(saveReturnMap(vessel), StatusType.RESULT_SUCCESS.getCode(), HttpStatus.OK,
@@ -37,7 +37,7 @@ public class VesselController extends VesselManager {
 	}
 
 	@Transactional
-	@RequestMapping(value = Constants.ENDPOINT_URI_VESSEL_ADD_TO_FLEET, method = RequestMethod.POST )
+	@PostMapping(value = Constants.ENDPOINT_URI_VESSEL_ADD_TO_FLEET  )
 	public  ResponseEntity<Object> addVesselToFleet(
 			@RequestBody Vessel vessel) {
 		return ResponseMvms.buildResponse(vesselBusinessService.addVesselToFleet(vessel.getIdInt(),vessel.getFleet().getIdInt()), StatusType.RESULT_SUCCESS.getCode(), HttpStatus.OK,
@@ -45,7 +45,7 @@ public class VesselController extends VesselManager {
 	}
 
 	@Transactional
-	@RequestMapping(value = Constants.ENDPOINT_URI_VESSEL_REMOVE_FROM_FLEET, method = RequestMethod.POST )
+	@PostMapping(value = Constants.ENDPOINT_URI_VESSEL_REMOVE_FROM_FLEET  )
 	public  ResponseEntity<Object> removeVesselFromFleet(
 			@RequestBody Vessel vessel) {
 		return ResponseMvms.buildResponse(vesselBusinessService.removeVesselFromFleet(vessel.getIdInt()), StatusType.RESULT_SUCCESS.getCode(), HttpStatus.OK,

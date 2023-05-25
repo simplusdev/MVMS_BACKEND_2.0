@@ -36,8 +36,8 @@ public class UserSettingController extends UserSettingManager {
     @Transactional
     @DeleteMapping(value = Constants.ENDPOINT_URI_USER_DISPLAY_CONFIGURATION_DELETE_BY_ID)
     public ResponseEntity<Object> deleteUserSettingById(
-            @RequestBody UserSetting userSetting) {
-         userSettingBusinessService.deleteByIdInt(userSetting.getIdInt());
+            @PathVariable("id") Integer idInt) {
+         userSettingBusinessService.deleteByIdInt(idInt);
         return ResponseMvms.buildResponse( true, StatusType.RESULT_SUCCESS.getCode(), HttpStatus.OK,
                 StatusType.RESULT_SUCCESS.getMessage());
     }
@@ -45,8 +45,8 @@ public class UserSettingController extends UserSettingManager {
     @Transactional
     @DeleteMapping(value = Constants.ENDPOINT_URI_USER_DISPLAY_CONFIGURATION_DELETE_BY_USER_ID )
     public ResponseEntity<Object> deleteUserSettingByUserId(
-            @RequestBody UserSetting userSetting) {
-        userSettingBusinessService.deleteByUserIdInt(userSetting.getUser().getIdInt());
+            @PathVariable("id") Integer userIdInt) {
+        userSettingBusinessService.deleteByUserIdInt(userIdInt);
         return ResponseMvms.buildResponse( true, StatusType.RESULT_SUCCESS.getCode(), HttpStatus.OK,
                 StatusType.RESULT_SUCCESS.getMessage());
     }

@@ -15,7 +15,7 @@ public class GeofenceMapper {
     }
 
     public static  List<Map<String,Object>> getListMap(List<Geofence> list){
-        List<Map<String,Object>> result =( List<Map<String,Object>> ) new DtoMapper.MapBuilderEngine<List<Geofence>>(list).init().build();
+        List<Map<String,Object>> result =( List<Map<String,Object>> ) new DtoMapper.MapBuilderEngine<List<Geofence>>(list, AuditFields.EXCLUDE).init().build();
         return  result;
     }
 

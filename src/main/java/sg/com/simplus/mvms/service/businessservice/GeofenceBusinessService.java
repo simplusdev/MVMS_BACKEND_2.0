@@ -20,4 +20,12 @@ public class GeofenceBusinessService {
         List<Geofence> geofenceList = geofenceDataService.findAll();
         return GeofenceMapper.getListMap(geofenceList);
     }
+
+    public Geofence save(Geofence geofence){
+        return geofenceDataService.save(geofence);
+    }
+
+    public void deleteByIdInt(Integer idInt){
+        geofenceDataService.deleteByIdInt(idInt);
+    }
 }

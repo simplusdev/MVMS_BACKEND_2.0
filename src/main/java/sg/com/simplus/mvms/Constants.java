@@ -46,9 +46,15 @@ public class Constants {
     //endpoint for user setting
     public static final String ENDPOINT_URI_USER_DISPLAY_CONFIGURATION_CREATE = "/user-display-configuration/create";
     public static final String ENDPOINT_URI_USER_DISPLAY_CONFIGURATION_UPDATE = "/user-display-configuration/update";
-    public static final String ENDPOINT_URI_USER_DISPLAY_CONFIGURATION_DELETE_BY_ID = "/user-display-configuration/delete-by-id";
-    public static final String ENDPOINT_URI_USER_DISPLAY_CONFIGURATION_DELETE_BY_USER_ID = "/user-display-configuration/delete-by-user-id";
+    public static final String ENDPOINT_URI_USER_DISPLAY_CONFIGURATION_DELETE_BY_ID = "/user-display-configuration/delete-by-id/{id}";
+    public static final String ENDPOINT_URI_USER_DISPLAY_CONFIGURATION_DELETE_BY_USER_ID = "/user-display-configuration/delete-by-user-id/{id}";
 
     //endpoint for user setting
     public static final String ENDPOINT_URI_POSITION_REPORT_GET_BY_DATE = "/position-report/get-by-date";
+
+    public static final String ENDPOINT_URI_GEOFENCE_GET_ALL = "/geofence/get-all";
+    public static final String ENDPOINT_URI_GEOFENCE_CREATE = "/geofence/create";
+    public static final String ENDPOINT_URI_GEOFENCE_UPDATE = "/geofence/update";
+    public static final String ENDPOINT_URI_GEOFENCE_DELETE = "/geofence/delete/{id}";
+
 }
