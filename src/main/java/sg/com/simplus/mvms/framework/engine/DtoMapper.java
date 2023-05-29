@@ -37,7 +37,7 @@ public class DtoMapper {
         Object o = mapBuilder.getObj();
 
         if(o instanceof List<?>){
-            System.out.println("DtoMapperNew o instanceof List " );
+            //System.out.println("DtoMapperNew o instanceof List " );
             List<Map<String, Object>> newList = new ArrayList<>();
             List<Map<String, Object>> resultList = mapper.convertValue(mapBuilder.getObj(), new TypeReference<List<Map<String, Object>>>() {
             });
@@ -47,7 +47,7 @@ public class DtoMapper {
             }
             oRes = newList;
         } else {
-            System.out.println("DtoMapperNew o instanceof not List " );
+           // System.out.println("DtoMapperNew o instanceof not List " );
             Map<String, Object> result = mapper.convertValue(mapBuilder.getObj(), new TypeReference<Map<String, Object>>() {
             });
             oRes =  proceedMap(result);;
@@ -72,13 +72,13 @@ public class DtoMapper {
             resultTemp = resultAddedOnly;
         }
 
-        System.out.println("ignoreList size: "+ignoreList.size());
+        //System.out.println("ignoreList size: "+ignoreList.size());
 
 
         for (String fieldIgnore : ignoreList) {
             resultTemp.remove(fieldIgnore);
-            System.out.println("remove field: "+fieldIgnore);
-            System.out.println("containsKey field "+fieldIgnore+": "+resultTemp.containsKey(fieldIgnore));
+            //System.out.println("remove field: "+fieldIgnore);
+            //System.out.println("containsKey field "+fieldIgnore+": "+resultTemp.containsKey(fieldIgnore));
         }
 
 
@@ -87,7 +87,7 @@ public class DtoMapper {
         for (String key : keySet) {
             resultTemp.remove(key);
             resultTemp.put(key, updateMap.get(key));
-            System.out.println("remove and update field: "+key);
+            //System.out.println("remove and update field: "+key);
         }
 
         Set<String> keySetTemp = resultTemp.keySet();
@@ -100,7 +100,7 @@ public class DtoMapper {
 
     public void manageFields(String key, Map<String, Object> toMap, Map<String, Object> fromMap, boolean onlyIdAndName){
         Object val = fromMap.get(key);
-        System.out.println("val: "+val);
+        //System.out.println("val: "+val);
         boolean isExcludeAuditFields = PropertyUtil.isExcludeAuditFields(auditFields,key);
         boolean isParentOnlyIdAndName = PropertyUtil.isParentOnlyIdAndName(parentFields);
         if(!isExcludeAuditFields) {
@@ -108,10 +108,17 @@ public class DtoMapper {
             if (isFieldNameDateTime) {
                 String sdate = null;
                 if(val!=null) {
-                    Date date = new Date((Long) val);
-                    sdate = DateUtil.formatDateToYyyMmDdThhMmSs(date);
+                    if(val instanceof Long) {
+                        Date date = new Date((Long) val);
+                        sdate = DateUtil.formatDateToYyyMmDdThhMmSs(date);
+                    }
+                    if(val instanceof String) {
+                        String s = (String)val;
+                        Date date = DateUtil.parseDateFromYyyyMmDdTHhMmSs(s);
+                        sdate = DateUtil.formatDateToYyyMmDdThhMmSs(date);
+                    }
                 }
-                System.out.println("put key:" + key + ", sdate: " + sdate);
+                //System.out.println("put key:" + key + ", sdate: " + sdate);
                 if(!onlyIdAndName) {
                     toMap.put(key, sdate);
                 }
@@ -131,7 +138,7 @@ public class DtoMapper {
             Map<String, Object> parentMap =   ( Map<String, Object> )val;
             Set<String> keySetParent = parentMap.keySet();
             for(String keyParent: keySetParent) {
-                System.out.println("invoke parent manageFields: "+keyParent);
+                //System.out.println("invoke parent manageFields: "+keyParent);
                 manageFields(keyParent, result,parentMap,isParentOnlyIdAndName);
             }
             if(!isExcludeAuditFields) {

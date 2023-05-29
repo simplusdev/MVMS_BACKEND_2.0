@@ -1,5 +1,6 @@
 package sg.com.simplus.mvms.data.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import sg.com.simplus.mvms.data.entity.VesselEntity;
 
@@ -16,7 +17,11 @@ public class Fleet  implements Serializable {
 
     private Integer createdByInt;
     private Integer modifiedByInt;
+
+    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
     private Date createdDateDti;
+
+    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
     private Date modifiedDateDti;
 
 

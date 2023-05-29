@@ -24,7 +24,7 @@ public class StringUtil {
         if(!isNullOrBlank(fieldName)){
             if(fieldName.length()>2){
                 String suffix = fieldName.substring(fieldName.length()-3,fieldName.length());
-                System.out.println("suffix: "+suffix);
+                //System.out.println("suffix: "+suffix);
                 if(suffix.equals(Constants.SUFFIX_DATA_TYPE_DATETIME)){
                     return true;
                 }

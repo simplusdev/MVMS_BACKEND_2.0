@@ -1,5 +1,7 @@
 package sg.com.simplus.mvms.data.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 
 public class Route {
@@ -16,8 +18,10 @@ public class Route {
 
     private Integer deletedByInt;
 
+    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
     private Date createdDateDti;
 
+    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
     private Date deletedDateDti;
 
     public Integer getIdInt() {

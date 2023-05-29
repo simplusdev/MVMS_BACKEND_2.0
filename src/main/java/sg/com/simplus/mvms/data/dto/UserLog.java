@@ -1,5 +1,7 @@
 package sg.com.simplus.mvms.data.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 
 public class UserLog {
@@ -10,6 +12,7 @@ public class UserLog {
 
     private String logStr;
 
+    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
     private Date timestampDti;
 
     public Integer getIdInt() {

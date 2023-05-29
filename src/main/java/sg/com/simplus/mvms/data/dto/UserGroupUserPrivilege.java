@@ -1,5 +1,7 @@
 package sg.com.simplus.mvms.data.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 
 public class UserGroupUserPrivilege {
@@ -12,6 +14,7 @@ public class UserGroupUserPrivilege {
 
     private Integer createdByInt;
 
+    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
     private Date createdDateDti;
 
     public Integer getIdInt() {

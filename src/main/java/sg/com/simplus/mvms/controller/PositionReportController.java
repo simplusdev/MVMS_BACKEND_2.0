@@ -20,7 +20,7 @@ import java.util.Map;
 public class PositionReportController extends PositionReportManager {
 
     @PostMapping(Constants.ENDPOINT_URI_POSITION_REPORT_GET_BY_DATE)
-    public ResponseEntity<Object> createNote(@RequestBody Map<String,Object> param) {
+    public ResponseEntity<Object> getPositionReportByDate(@RequestBody Map<String,Object> param) {
         Integer vesselIdInt = (Integer)param.get("vesselIdInt");
         Date startDateDti = DateUtil.parseDateFromDdMmYyyyHhMm(((String) param.get("startDateDti"))+" 00:00");
         Date endDateDti = DateUtil.parseDateFromDdMmYyyyHhMm(((String) param.get("endDateDti"))+" 23:59");

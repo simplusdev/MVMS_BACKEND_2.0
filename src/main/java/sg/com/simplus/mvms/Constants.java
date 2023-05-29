@@ -52,9 +52,15 @@ public class Constants {
     //endpoint for user setting
     public static final String ENDPOINT_URI_POSITION_REPORT_GET_BY_DATE = "/position-report/get-by-date";
 
+    //endpoint for geofence
     public static final String ENDPOINT_URI_GEOFENCE_GET_ALL = "/geofence/get-all";
     public static final String ENDPOINT_URI_GEOFENCE_CREATE = "/geofence/create";
     public static final String ENDPOINT_URI_GEOFENCE_UPDATE = "/geofence/update";
     public static final String ENDPOINT_URI_GEOFENCE_DELETE = "/geofence/delete/{id}";
 
+    //endpoint for buoy
+    public static final String ENDPOINT_URI_SYMBOL_GET_ALL = "/symbol/get-all";
+    public static final String ENDPOINT_URI_SYMBOL_CREATE = "/symbol/create";
+    public static final String ENDPOINT_URI_SYMBOL_UPDATE = "/symbol/update";
+    public static final String ENDPOINT_URI_SYMBOL_DELETE = "/symbol/delete/{id}";
 }

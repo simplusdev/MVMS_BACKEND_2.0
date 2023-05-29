@@ -1,5 +1,6 @@
 package sg.com.simplus.mvms.data.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import sg.com.simplus.mvms.data.entity.FleetEntity;
 
 import java.io.Serializable;
@@ -44,6 +45,7 @@ public class Vessel  implements Serializable {
 
     private String dateOfBuildStr;
 
+    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
     private Date timestampDti;
 
     private String projectVesselTypeStr;
@@ -92,8 +94,10 @@ public class Vessel  implements Serializable {
 
     private Integer modifiedByInt;
 
+    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
     private Date createdDateDti;
 
+    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
     private Date modifiedDateDti;
 
     public Integer getIdInt() {

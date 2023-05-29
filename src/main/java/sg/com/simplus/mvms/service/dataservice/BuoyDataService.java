@@ -4,7 +4,7 @@ import org.modelmapper.PropertyMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import sg.com.simplus.mvms.data.dto.Buoy;
-import sg.com.simplus.mvms.data.dto.Vessel;
+import sg.com.simplus.mvms.data.dto.Buoy;
 import sg.com.simplus.mvms.data.entity.BuoyEntity;
 import sg.com.simplus.mvms.data.repository.BuoyRepository;
 import sg.com.simplus.mvms.framework.engine.DataServiceEngine;
@@ -20,10 +20,15 @@ public class BuoyDataService extends DataServiceEngine<BuoyEntity,Buoy> {
         return toDtoList(buoyRepository.findAll());
     }
 
-    public Vessel save(Buoy buoy){
+    public Buoy save(Buoy buoy){
         return  toDto(buoyRepository.save(toEntity(buoy)) );
     }
 
+
+    public void deleteByIdInt(Integer idInt){
+        buoyRepository.deleteByIdInt(idInt);
+    }
+    
     @Override
     public  void customDto(Object entity, Object dto) {
     }

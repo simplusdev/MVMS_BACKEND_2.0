@@ -1,5 +1,7 @@
 package sg.com.simplus.mvms.data.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 
 public class UnAlert {
@@ -8,6 +10,7 @@ public class UnAlert {
 
     private Vessel vessel;
 
+    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
     private Date timestampDti;
 
     public Integer getIdInt() {
