@@ -22,8 +22,8 @@ public class PositionReportController extends PositionReportManager {
     @PostMapping(Constants.ENDPOINT_URI_POSITION_REPORT_GET_BY_DATE)
     public ResponseEntity<Object> getPositionReportByDate(@RequestBody Map<String,Object> param) {
         Integer vesselIdInt = (Integer)param.get("vesselIdInt");
-        Date startDateDti = DateUtil.parseDateFromDdMmYyyyHhMm(((String) param.get("startDateDti"))+" 00:00");
-        Date endDateDti = DateUtil.parseDateFromDdMmYyyyHhMm(((String) param.get("endDateDti"))+" 23:59");
+        Date startDateDti = DateUtil.parseDateFromYyyyMmDdTHhMmSs(((String) param.get("startDateDti")));
+        Date endDateDti = DateUtil.parseDateFromYyyyMmDdTHhMmSs(((String) param.get("endDateDti")));
         List<Map<String,Object>> positionReportList = positionReportBusinessService.findByVesselIdIntAndTimestampDtiBetween(vesselIdInt,startDateDti,endDateDti);
         return ResponseMvms.buildResponse(positionReportList, StatusType.RESULT_SUCCESS.getCode(), HttpStatus.OK,
                 StatusType.RESULT_SUCCESS.getMessage());
