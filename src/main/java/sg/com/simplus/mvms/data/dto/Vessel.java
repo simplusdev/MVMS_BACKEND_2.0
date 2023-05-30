@@ -72,7 +72,6 @@ public class Vessel  implements Serializable {
 
     private Double toStarboardDbl;
 
-    private Double draughtDbl;
 
     private String etaStr;
 
@@ -346,14 +345,6 @@ public class Vessel  implements Serializable {
 
     public void setToStarboardDbl(Double toStarboardDbl) {
         this.toStarboardDbl = toStarboardDbl;
-    }
-
-    public Double getDraughtDbl() {
-        return draughtDbl;
-    }
-
-    public void setDraughtDbl(Double draughtDbl) {
-        this.draughtDbl = draughtDbl;
     }
 
     public String getEtaStr() {

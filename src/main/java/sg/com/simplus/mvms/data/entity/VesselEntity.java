@@ -106,9 +106,6 @@ public class VesselEntity  implements Serializable {
     @Column(name = "to_starboard")
     private Double toStarboardDbl;
 
-    @Column(name = "draught")
-    private Double draughtDbl;
-
     @Column(name = "eta")
     private String etaStr;
 
@@ -391,14 +388,6 @@ public class VesselEntity  implements Serializable {
 
     public void setToStarboardDbl(Double toStarboardDbl) {
         this.toStarboardDbl = toStarboardDbl;
-    }
-
-    public Double getDraughtDbl() {
-        return draughtDbl;
-    }
-
-    public void setDraughtDbl(Double draughtDbl) {
-        this.draughtDbl = draughtDbl;
     }
 
     public String getEtaStr() {
