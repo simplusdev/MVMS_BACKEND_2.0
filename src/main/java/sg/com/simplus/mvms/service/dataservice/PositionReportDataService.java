@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import sg.com.simplus.mvms.data.dto.PositionReport;
 import sg.com.simplus.mvms.data.dto.Vessel;
 import sg.com.simplus.mvms.data.entity.PositionReportEntity;
+import sg.com.simplus.mvms.data.ref.*;
 import sg.com.simplus.mvms.data.repository.PositionReportRepository;
 import sg.com.simplus.mvms.framework.engine.DataServiceEngine;
 
@@ -31,10 +32,19 @@ public class PositionReportDataService extends DataServiceEngine<PositionReportE
 
     @Override
     public  void customDto(Object entity, Object dto) {
+        PositionReport positionReport = (PositionReport) dto;
+        PositionReportEntity positionReportEntity = (PositionReportEntity) entity;
+        positionReport.setCsStr(CsUnitRef.descOf(positionReportEntity.getCsInt()));
+        positionReport.setDisplayStr(DisplayFlagRef.descOf(positionReportEntity.getDisplayInt()));
+        positionReport.setDscStr(DscFlagRef.descOf(positionReportEntity.getDscInt()));
+        positionReport.setBandStr(BandFlagRef.descOf(positionReportEntity.getBandInt()));
+        positionReport.setMsg22Str(Msg22FlagRef.descOf(positionReportEntity.getMsg22Int()));
+        positionReport.setAssignedStr(AssignedRef.descOf(positionReportEntity.getAssignedInt()));
     }
 
     @Override
     public void customEntity(Object dto, Object entity) {
+
     }
 
     @Override

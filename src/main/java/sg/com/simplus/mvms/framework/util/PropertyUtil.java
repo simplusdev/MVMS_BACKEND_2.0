@@ -29,4 +29,15 @@ public class PropertyUtil {
     public static boolean isParentOnlyIdAndName(ParentFields parentFields){
         return parentFields != null && parentFields.equals(ParentFields.ONLY_CONTAINED_ID_AND_NAME);
     }
+
+    public static <K, V> K getKey(Map<K, V> map, V value)
+    {
+        for (K key: map.keySet())
+        {
+            if (value.equals(map.get(key))) {
+                return key;
+            }
+        }
+        return null;
+    }
 }

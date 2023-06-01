@@ -1,6 +1,7 @@
 package sg.com.simplus.mvms.data.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import sg.com.simplus.mvms.data.entity.FleetEntity;
 
 import java.io.Serializable;
@@ -62,7 +63,10 @@ public class Vessel  implements Serializable {
 
     private Double repeatIndicatorDbl;
 
+    @JsonIgnore
     private Integer aisVersionInt;
+
+    private String aisVersionStr;
 
     private Double toBowDbl;
 
@@ -75,7 +79,10 @@ public class Vessel  implements Serializable {
 
     private String etaStr;
 
+    @JsonIgnore
     private Integer dteInt;
+
+    private String dteStr;
 
     private Integer partnoInt;
 
@@ -85,9 +92,15 @@ public class Vessel  implements Serializable {
 
     private Integer serialInt;
 
+    @JsonIgnore
     private Integer epfdInt;
 
+    private String epfdStr;
+
+    @JsonIgnore
     private Integer shiptypeInt;
+
+    private String shiptypeStr;
 
     private Integer createdByInt;
 
@@ -315,6 +328,14 @@ public class Vessel  implements Serializable {
         this.aisVersionInt = aisVersionInt;
     }
 
+    public String getAisVersionStr() {
+        return aisVersionStr;
+    }
+
+    public void setAisVersionStr(String aisVersionStr) {
+        this.aisVersionStr = aisVersionStr;
+    }
+
     public Double getToBowDbl() {
         return toBowDbl;
     }
@@ -355,12 +376,12 @@ public class Vessel  implements Serializable {
         this.etaStr = etaStr;
     }
 
-    public Integer getDteInt() {
-        return dteInt;
+    public String getDteStr() {
+        return dteStr;
     }
 
-    public void setDteInt(Integer dteInt) {
-        this.dteInt = dteInt;
+    public void setDteStr(String dteStr) {
+        this.dteStr = dteStr;
     }
 
     public Integer getPartnoInt() {
@@ -395,12 +416,12 @@ public class Vessel  implements Serializable {
         this.serialInt = serialInt;
     }
 
-    public Integer getEpfdInt() {
-        return epfdInt;
+    public Integer getDteInt() {
+        return dteInt;
     }
 
-    public void setEpfdInt(Integer epfdInt) {
-        this.epfdInt = epfdInt;
+    public void setDteInt(Integer dteInt) {
+        this.dteInt = dteInt;
     }
 
     public Integer getShiptypeInt() {
@@ -409,6 +430,30 @@ public class Vessel  implements Serializable {
 
     public void setShiptypeInt(Integer shiptypeInt) {
         this.shiptypeInt = shiptypeInt;
+    }
+
+    public Integer getEpfdInt() {
+        return epfdInt;
+    }
+
+    public void setEpfdInt(Integer epfdInt) {
+        this.epfdInt = epfdInt;
+    }
+
+    public String getEpfdStr() {
+        return epfdStr;
+    }
+
+    public void setEpfdStr(String epfdStr) {
+        this.epfdStr = epfdStr;
+    }
+
+    public String getShiptypeStr() {
+        return shiptypeStr;
+    }
+
+    public void setShiptypeStr(String shiptypeStr) {
+        this.shiptypeStr = shiptypeStr;
     }
 
     public Integer getCreatedByInt() {

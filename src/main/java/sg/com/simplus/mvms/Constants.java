@@ -30,6 +30,7 @@ public class Constants {
     //endpoint for vessel
     public static final String ENDPOINT_URI_VESSEL_GET_ALL = "/vessel/get-all";
     public static final String ENDPOINT_URI_VESSEL_CREATE = "/vessel/create";
+    public static final String ENDPOINT_URI_VESSEL_UPDATE = "/vessel/update";
     public static final String ENDPOINT_URI_VESSEL_ADD_TO_FLEET = "/vessel/add-to-fleet";
     public static final String ENDPOINT_URI_VESSEL_REMOVE_FROM_FLEET = "/vessel/remove-from-fleet";
 

@@ -1,6 +1,7 @@
 package sg.com.simplus.mvms.data.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.util.Date;
 
@@ -20,17 +21,35 @@ public class PositionReportLast {
 
     private Integer regionalInt;
 
+    @JsonIgnore
     private Integer csInt;
 
+    private String csStr;
+
+    @JsonIgnore
     private Integer displayInt;
 
+    private String displayStr;
+
+    @JsonIgnore
     private Integer dscInt;
 
+    private String dscStr;
+
+    @JsonIgnore
     private Integer bandInt;
 
+    private String bandStr;
+
+    @JsonIgnore
     private Integer msg22Int;
 
+    private String msg22Str;
+
+    @JsonIgnore
     private Integer assignedInt;
+
+    private String assignedStr;
 
     private Integer raimInt;
 
@@ -115,12 +134,28 @@ public class PositionReportLast {
         this.csInt = csInt;
     }
 
+    public String getCsStr() {
+        return csStr;
+    }
+
+    public void setCsStr(String csStr) {
+        this.csStr = csStr;
+    }
+
     public Integer getDisplayInt() {
         return displayInt;
     }
 
     public void setDisplayInt(Integer displayInt) {
         this.displayInt = displayInt;
+    }
+
+    public String getDisplayStr() {
+        return displayStr;
+    }
+
+    public void setDisplayStr(String displayStr) {
+        this.displayStr = displayStr;
     }
 
     public Integer getDscInt() {
@@ -131,12 +166,28 @@ public class PositionReportLast {
         this.dscInt = dscInt;
     }
 
+    public String getDscStr() {
+        return dscStr;
+    }
+
+    public void setDscStr(String dscStr) {
+        this.dscStr = dscStr;
+    }
+
     public Integer getBandInt() {
         return bandInt;
     }
 
     public void setBandInt(Integer bandInt) {
         this.bandInt = bandInt;
+    }
+
+    public String getBandStr() {
+        return bandStr;
+    }
+
+    public void setBandStr(String bandStr) {
+        this.bandStr = bandStr;
     }
 
     public Integer getMsg22Int() {
@@ -147,12 +198,28 @@ public class PositionReportLast {
         this.msg22Int = msg22Int;
     }
 
+    public String getMsg22Str() {
+        return msg22Str;
+    }
+
+    public void setMsg22Str(String msg22Str) {
+        this.msg22Str = msg22Str;
+    }
+
     public Integer getAssignedInt() {
         return assignedInt;
     }
 
     public void setAssignedInt(Integer assignedInt) {
         this.assignedInt = assignedInt;
+    }
+
+    public String getAssignedStr() {
+        return assignedStr;
+    }
+
+    public void setAssignedStr(String assignedStr) {
+        this.assignedStr = assignedStr;
     }
 
     public Integer getRaimInt() {
@@ -226,4 +293,5 @@ public class PositionReportLast {
     public void setTimestampDti(Date timestampDti) {
         this.timestampDti = timestampDti;
     }
+
 }

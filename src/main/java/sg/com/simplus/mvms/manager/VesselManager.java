@@ -25,4 +25,14 @@ public class VesselManager extends BusinessManager {
 		return vesselMap;
 	}
 
+	public Map<String,Object> updateReturnMap(Vessel vessel) {
+		Vessel vesselDb = vesselBusinessService.getById(vessel.getIdInt());
+		vesselDb.setNameStr(vessel.getNameStr());
+		vesselDb.setMmsiInt(vessel.getMmsiInt());
+		vesselDb.setFleet(vessel.getFleet());
+		Vessel vesselResult = vesselBusinessService.save(vesselDb);
+		Map<String,Object> vesselMap = VesselMapper.getMap(vesselResult);
+		return vesselMap;
+	}
+
 }

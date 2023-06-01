@@ -40,6 +40,14 @@ public class VesselController extends VesselManager {
 	}
 
 	@Transactional
+	@PostMapping(value = Constants.ENDPOINT_URI_VESSEL_UPDATE  )
+	public  ResponseEntity<Object> updateVessel(
+			@RequestBody Vessel vessel) {
+		return ResponseMvms.buildResponse(updateReturnMap(vessel), StatusType.RESULT_SUCCESS.getCode(), HttpStatus.OK,
+				StatusType.RESULT_SUCCESS.getMessage());
+	}
+
+	@Transactional
 	@PostMapping(value = Constants.ENDPOINT_URI_VESSEL_ADD_TO_FLEET  )
 	public  ResponseEntity<Object> addVesselToFleet(
 			@RequestBody Vessel vessel) {
