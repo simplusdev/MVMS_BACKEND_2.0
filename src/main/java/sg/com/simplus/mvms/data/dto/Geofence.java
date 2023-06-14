@@ -1,12 +1,17 @@
 package sg.com.simplus.mvms.data.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.util.Date;
+import java.util.List;
 
 public class Geofence {
 
     private Integer idInt;
+
+    @JsonIgnore
+    private List<GeofenceAlertTrigger> geofenceAlertTriggerList;
 
     private String nameStr;
 
@@ -40,6 +45,14 @@ public class Geofence {
 
     public void setIdInt(Integer idInt) {
         this.idInt = idInt;
+    }
+
+    public List<GeofenceAlertTrigger> getGeofenceAlertTriggerList() {
+        return geofenceAlertTriggerList;
+    }
+
+    public void setGeofenceAlertTriggerList(List<GeofenceAlertTrigger> geofenceAlertTriggerList) {
+        this.geofenceAlertTriggerList = geofenceAlertTriggerList;
     }
 
     public String getNameStr() {

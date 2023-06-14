@@ -26,7 +26,11 @@ public class PositionReportDataService extends DataServiceEngine<PositionReportE
         return toDtoList(positionReportRepository.findByVesselIdIntAndTimestampDtiBetween(vesselIdInt,startDateDti,endDateDti));
     }
 
-    public Vessel save(PositionReport positionReport){
+    public void deleteByVesselMmsiIntAndTimestampDtiBetween(Integer mmsiInt,Date startDateDti,Date endDateDti ){
+        positionReportRepository.deleteByVesselMmsiIntAndTimestampDtiBetween(mmsiInt,startDateDti,endDateDti);
+    }
+
+    public PositionReport save(PositionReport positionReport){
         return  toDto(positionReportRepository.save(toEntity(positionReport)) );
     }
 

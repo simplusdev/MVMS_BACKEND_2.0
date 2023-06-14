@@ -2,7 +2,7 @@ package sg.com.simplus.mvms.data.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import sg.com.simplus.mvms.data.entity.FleetEntity;
+
 
 import java.io.Serializable;
 import java.util.Date;
@@ -11,8 +11,9 @@ public class Vessel  implements Serializable {
 
     private Integer idInt;
 
-    //Integer fleetIdInt;
     private Fleet fleet;
+
+    private Position positionReportLast;
 
     private Boolean active;
 
@@ -39,6 +40,10 @@ public class Vessel  implements Serializable {
     private Double widthDbl;
 
     private Double draftDbl;
+
+    private Double dwtDbl;
+
+    private Double gtDbl;
 
     private String flagStr;
 
@@ -136,6 +141,15 @@ public class Vessel  implements Serializable {
         this.fleet = fleet;
     }
 
+
+    public Position getPositionReportLast() {
+        return positionReportLast;
+    }
+
+    public void setPositionReportLast(Position positionReportLast) {
+        this.positionReportLast = positionReportLast;
+    }
+
     public String getNameStr() {
         return nameStr;
     }
@@ -230,6 +244,22 @@ public class Vessel  implements Serializable {
 
     public void setDraftDbl(Double draftDbl) {
         this.draftDbl = draftDbl;
+    }
+
+    public Double getDwtDbl() {
+        return dwtDbl;
+    }
+
+    public void setDwtDbl(Double dwtDbl) {
+        this.dwtDbl = dwtDbl;
+    }
+
+    public Double getGtDbl() {
+        return gtDbl;
+    }
+
+    public void setGtDbl(Double gtDbl) {
+        this.gtDbl = gtDbl;
     }
 
     public String getFlagStr() {

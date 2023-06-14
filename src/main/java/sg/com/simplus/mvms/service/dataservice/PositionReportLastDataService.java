@@ -2,6 +2,7 @@ package sg.com.simplus.mvms.service.dataservice;
 
 import org.modelmapper.PropertyMap;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 import sg.com.simplus.mvms.data.dto.PositionReport;
 import sg.com.simplus.mvms.data.dto.PositionReportLast;
@@ -21,6 +22,16 @@ public class PositionReportLastDataService extends DataServiceEngine<PositionRep
 
     public List<PositionReportLast> findAll(){
         return toDtoList(positionReportLastRepository.findAll());
+    }
+
+    public PositionReportLast findOneByVesselIdInt(Integer vesselIdInt){
+        List<PositionReportLastEntity> list =  positionReportLastRepository.findByVesselIdInt(vesselIdInt);
+        List<PositionReportLast> listDto = toDtoList(list);
+        PositionReportLast positionReportLast = null;
+        if(listDto.size()>0){
+            positionReportLast=listDto.get(0);
+        }
+        return positionReportLast;
     }
 
     public Vessel save(PositionReportLast positionReportLast){

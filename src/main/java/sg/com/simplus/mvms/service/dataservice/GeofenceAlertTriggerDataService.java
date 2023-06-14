@@ -2,6 +2,7 @@ package sg.com.simplus.mvms.service.dataservice;
 
 import org.modelmapper.PropertyMap;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 import sg.com.simplus.mvms.data.dto.GeofenceAlertTrigger;
 import sg.com.simplus.mvms.data.dto.Vessel;
@@ -18,6 +19,10 @@ public class GeofenceAlertTriggerDataService extends DataServiceEngine<GeofenceA
 
     public List<GeofenceAlertTrigger> findAll(){
         return toDtoList(geofenceAlertTriggerRepository.findAll());
+    }
+
+    public List<GeofenceAlertTrigger> findByGeofenceIdInt(Integer geofenceIdInt) {
+        return toDtoList(geofenceAlertTriggerRepository.findByGeofenceIdInt(geofenceIdInt));
     }
 
     public Vessel save(GeofenceAlertTrigger geofenceAlertTrigger){

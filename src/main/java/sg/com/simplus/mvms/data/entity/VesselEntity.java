@@ -58,6 +58,12 @@ public class VesselEntity  implements Serializable {
     @Column(name = "draft")
     private Double draftDbl;
 
+    @Column(name = "dwt")
+    private Double dwtDbl;
+
+    @Column(name = "gt")
+    private Double gtDbl;
+
     @Column(name = "flag")
     private String flagStr;
 
@@ -260,6 +266,22 @@ public class VesselEntity  implements Serializable {
 
     public void setDraftDbl(Double draftDbl) {
         this.draftDbl = draftDbl;
+    }
+
+    public Double getDwtDbl() {
+        return dwtDbl;
+    }
+
+    public void setDwtDbl(Double dwtDbl) {
+        this.dwtDbl = dwtDbl;
+    }
+
+    public Double getGtDbl() {
+        return gtDbl;
+    }
+
+    public void setGtDbl(Double gtDbl) {
+        this.gtDbl = gtDbl;
     }
 
     public String getFlagStr() {

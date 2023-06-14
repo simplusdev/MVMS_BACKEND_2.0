@@ -22,6 +22,10 @@ public class VesselBusinessService {
         return VesselMapper.getListMap(vesselList);
     }
 
+    public  Vessel findByMmsiInt(Integer mmsiInt) {
+        return vesselDataService.findByMmsiInt(mmsiInt);
+    }
+
     public Vessel getById(Integer id){
         return vesselDataService.getById(id);
     }

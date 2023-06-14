@@ -1,23 +1,35 @@
 package sg.com.simplus.mvms;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.ulisesbocchio.jasyptspringboot.annotation.EnableEncryptableProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.jms.annotation.EnableJms;
 import sg.com.simplus.mvms.framework.engine.LabelPropertyEngine;
 import sg.com.simplus.mvms.framework.engine.MulticastEngine;
+import sg.com.simplus.mvms.mq.GeofenceLookupService;
+import sg.com.simplus.mvms.mq.ProducerService;
 
 @EnableEncryptableProperties
 @SpringBootApplication
+@EnableJms
 public class MvmsApplication  implements ApplicationRunner {
 
 	@Autowired
 	LabelPropertyEngine labelPropertyEngine;
 
-	public static void main(String[] args) {
-		SpringApplication.run(MvmsApplication.class, args);
+	@Autowired
+	GeofenceLookupService geofenceLookupService;
+
+	public static void main(String[] args) throws JsonProcessingException {
+		ConfigurableApplicationContext appContext = SpringApplication.run(MvmsApplication.class, args);
+		ProducerService producerService = appContext.getBean(ProducerService.class);
+		//producerService.sendToQueue();
+		//producerService.sendToTopic();
 	}
 
 	@Override
@@ -25,5 +37,6 @@ public class MvmsApplication  implements ApplicationRunner {
 		System.out.println("ApplicationRunner#run()");
 		MulticastEngine.init();
 		labelPropertyEngine.init();
+		geofenceLookupService.fetch();
 	}
 }

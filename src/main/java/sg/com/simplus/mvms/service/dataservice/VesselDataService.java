@@ -1,7 +1,9 @@
 package sg.com.simplus.mvms.service.dataservice;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
+import sg.com.simplus.mvms.data.dto.PositionReportLast;
 import sg.com.simplus.mvms.data.dto.Vessel;
 import sg.com.simplus.mvms.data.entity.VesselEntity;
 import sg.com.simplus.mvms.data.ref.AisVersionRef;
@@ -18,12 +20,35 @@ public class VesselDataService extends DataServiceEngine<VesselEntity,Vessel> {
     @Autowired
     VesselRepository vesselRepository;
 
+    @Autowired
+    PositionReportLastDataService positionReportLastDataService;
+
     public List<Vessel> findAll(){
-        return toDtoList(vesselRepository.findAll() );
+        List<Vessel> vesselList =toDtoList(vesselRepository.findAll() );
+        for(Vessel vessel: vesselList){
+            PositionReportLast positionReportLast = positionReportLastDataService.findOneByVesselIdInt(vessel.getIdInt());
+            vessel.setPositionReportLast(positionReportLast);
+        }
+        return vesselList;
+    }
+
+    public  Vessel findByMmsiInt(Integer mmsiInt) {
+        List<Vessel> vesselList = toDtoList(vesselRepository.findByMmsiInt(mmsiInt));
+        Vessel vessel = null;
+        if(vesselList!=null && vesselList.size()>0){
+            vessel = vesselList.get(0);
+            PositionReportLast positionReportLast = positionReportLastDataService.findOneByVesselIdInt(vessel.getIdInt());
+            vessel.setPositionReportLast(positionReportLast);
+        }
+        return vessel;
     }
 
     public Vessel save(Vessel vessel){
        return  toDto(vesselRepository.save(toEntity(vessel)) );
+    }
+
+    public Vessel merge(Vessel vessel){
+        return  toDto(vesselRepository.save(toEntity(vessel)) );
     }
 
     public Vessel getById(Integer id){

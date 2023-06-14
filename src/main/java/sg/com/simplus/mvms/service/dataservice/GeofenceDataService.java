@@ -21,6 +21,10 @@ public class GeofenceDataService extends DataServiceEngine<GeofenceEntity,Geofen
         return toDtoList(geofenceRepository.findAll());
     }
 
+    public List<Geofence> findByDeletedIntNot(Integer deletedInt){
+        return toDtoList(geofenceRepository.findByDeletedIntNot(deletedInt));
+    }
+
     public Geofence save(Geofence geofence){
         return  toDto(geofenceRepository.save(toEntity(geofence)) );
     }
@@ -33,8 +37,8 @@ public class GeofenceDataService extends DataServiceEngine<GeofenceEntity,Geofen
     public  void customDto(Object entity, Object dto) {
         Geofence geofence = (Geofence) dto;
         GeofenceEntity geofenceEntity = (GeofenceEntity) entity;
-        geofence.setTransparentBln(geofenceEntity.getTransparentInt()==1?true:false);
-        geofence.setDeletedBln(geofenceEntity.getDeletedInt()==1?true:false);
+        geofence.setTransparentBln(geofenceEntity.getTransparentInt()==null?false:geofenceEntity.getTransparentInt()==1?true:false);
+        geofence.setDeletedBln(geofenceEntity.getDeletedInt()==null?false: geofenceEntity.getDeletedInt()==1?true:false);
     }
 
     @Override

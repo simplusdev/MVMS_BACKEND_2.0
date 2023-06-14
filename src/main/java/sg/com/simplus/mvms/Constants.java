@@ -64,4 +64,11 @@ public class Constants {
     public static final String ENDPOINT_URI_SYMBOL_CREATE = "/symbol/create";
     public static final String ENDPOINT_URI_SYMBOL_UPDATE = "/symbol/update";
     public static final String ENDPOINT_URI_SYMBOL_DELETE = "/symbol/delete/{id}";
+
+    public static final String JMS_QUEUE_NAME = "AIS_DECODING_SERVICE.QUEUE";
+
+    public static final String JMS_TOPIC_NAME_VESSEL = "BACKEND_VESSEL_POSITION.TOPIC";
+
+    public static final String JMS_TOPIC_NAME_GEOFENCE_ALERT_TRIGGER = "BACKEND_GEOFENCE_ALERT_TRIGGER.TOPIC";
+
 }
