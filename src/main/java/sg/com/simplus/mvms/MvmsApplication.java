@@ -13,6 +13,7 @@ import sg.com.simplus.mvms.framework.engine.LabelPropertyEngine;
 import sg.com.simplus.mvms.framework.engine.MulticastEngine;
 import sg.com.simplus.mvms.mq.GeofenceLookupService;
 import sg.com.simplus.mvms.mq.ProducerService;
+import sg.com.simplus.mvms.mq.VesselTypeLookupService;
 
 @EnableEncryptableProperties
 @SpringBootApplication
@@ -24,6 +25,9 @@ public class MvmsApplication  implements ApplicationRunner {
 
 	@Autowired
 	GeofenceLookupService geofenceLookupService;
+
+	@Autowired
+	VesselTypeLookupService vesselTypeLookupService;
 
 	public static void main(String[] args) throws JsonProcessingException {
 		ConfigurableApplicationContext appContext = SpringApplication.run(MvmsApplication.class, args);
@@ -38,5 +42,6 @@ public class MvmsApplication  implements ApplicationRunner {
 		MulticastEngine.init();
 		labelPropertyEngine.init();
 		geofenceLookupService.fetch();
+		vesselTypeLookupService.fetch();
 	}
 }

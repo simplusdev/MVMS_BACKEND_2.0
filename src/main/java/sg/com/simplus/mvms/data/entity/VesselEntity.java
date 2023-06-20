@@ -1,7 +1,5 @@
 package sg.com.simplus.mvms.data.entity;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
@@ -21,6 +19,10 @@ public class VesselEntity  implements Serializable {
     @ManyToOne(  )
     @JoinColumn(foreignKey = @ForeignKey(name = "fleet_id"), name = "fleet_id")
     private FleetEntity fleet;
+
+    @ManyToOne(  )
+    @JoinColumn(foreignKey = @ForeignKey(name = "vessel_type_id"), name = "vessel_type_id")
+    private VesselTypeEntity vesselType;
 
     @Column(name = "name")
     private String nameStr;
@@ -88,8 +90,8 @@ public class VesselEntity  implements Serializable {
     @Column(name = "assigned_route")
     private String assignedRouteStr;
 
-    @Column(name = "alert_recipients")
-    private String alertRecipientsStr;
+    @Column(name = "email")
+    private String email;
 
     @Column(name = "callsign")
     private String callsignStr;
@@ -171,6 +173,15 @@ public class VesselEntity  implements Serializable {
 //    public void setFleetIdInt(Integer fleetIdInt) {
 //        this.fleetIdInt = fleetIdInt;
 //    }
+
+
+    public VesselTypeEntity getVesselType() {
+        return vesselType;
+    }
+
+    public void setVesselType(VesselTypeEntity vesselType) {
+        this.vesselType = vesselType;
+    }
 
     public String getNameStr() {
         return nameStr;
@@ -348,12 +359,12 @@ public class VesselEntity  implements Serializable {
         this.assignedRouteStr = assignedRouteStr;
     }
 
-    public String getAlertRecipientsStr() {
-        return alertRecipientsStr;
+    public String getEmail() {
+        return email;
     }
 
-    public void setAlertRecipientsStr(String alertRecipientsStr) {
-        this.alertRecipientsStr = alertRecipientsStr;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getCallsignStr() {

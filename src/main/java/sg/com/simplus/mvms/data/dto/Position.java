@@ -1,7 +1,7 @@
 package sg.com.simplus.mvms.data.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 import java.util.Date;
 
@@ -19,32 +19,26 @@ public class Position {
 
     private Integer regionalInt;
 
-    @JsonIgnore
     private Integer csInt;
 
     private String csStr;
 
-    @JsonIgnore
     private Integer displayInt;
 
     private String displayStr;
 
-    @JsonIgnore
     private Integer dscInt;
 
     private String dscStr;
 
-    @JsonIgnore
     private Integer bandInt;
 
     private String bandStr;
 
-    @JsonIgnore
     private Integer msg22Int;
 
     private String msg22Str;
 
-    @JsonIgnore
     private Integer assignedInt;
 
     private String assignedStr;

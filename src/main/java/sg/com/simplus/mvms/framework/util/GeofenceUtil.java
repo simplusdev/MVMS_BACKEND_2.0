@@ -37,7 +37,7 @@ public class GeofenceUtil {
         Double double_width = vessel.getWidthDbl() !=null ? vessel.getWidthDbl()  : 0;
         Double double_draft = vessel.getDraftDbl() != null ? vessel.getDraftDbl() : 0;
         List<Geofence> geofenceList = GeofenceLookupService.getGeofenceList();
-        System.out.println("checkGeofenceInfringement double_longitude: "+double_longitude+", geofenceList size: "+geofenceList.size());
+        //System.out.println("checkGeofenceInfringement double_longitude: "+double_longitude+", geofenceList size: "+geofenceList.size());
         for(Geofence geofence: geofenceList){
             GenericPair<Boolean, ArrayList<Integer>>  resInfrigement =  checkGeofenceInfringement(geofence, double_longitude,double_latitude,double_length,double_width,double_draft);
             boolean boolean_infringement = resInfrigement.getFirstObject();
@@ -58,6 +58,13 @@ public class GeofenceUtil {
 
                 try {
                     producerService.sendToGeofenceAlertTriggerTopic( string_message);
+                    String emails = vessel.getEmail();
+                    if(emails!=null) {
+                        String emailArr[] = emails.split(";");
+                        for(int i=0;i<emailArr.length;i++) {
+                            EmailUtil.sendEmail(StringUtil.getPropertyValue("email.subject.geofence.alert"), emailArr[i], string_message);
+                        }
+                    }
                 } catch (JsonProcessingException e) {
                     throw new RuntimeException(e);
                 }
@@ -69,13 +76,13 @@ public class GeofenceUtil {
 
     private GenericPair<Boolean, ArrayList<Integer>> checkGeofenceInfringement(Geofence geofence,  Double double_longitude, Double double_latitude,  Double double_length, Double double_width, Double double_draft) {
        // boolean boolean_isVesselProjectVessel = string_vesselCategory.equalsIgnoreCase("project");
-        System.out.println("double_latitude: "+double_latitude);
-        System.out.println("double_longitude: "+double_longitude);
+        //System.out.println("double_latitude: "+double_latitude);
+        //System.out.println("double_longitude: "+double_longitude);
         ArrayList<GenericPair<Double, Double>> arrayList_coordinate = getArrayCoordinates(geofence.getCoordinatesStr());
         List<GeofenceAlertTrigger> arrayList_geofenceAlertTrigger = geofence.getGeofenceAlertTriggerList();
         boolean boolean_isInsideGeofence = false;
         SymbolType symbolType = geofence.getSymbolType();
-        System.out.println(" symbolType.getNameStr(): "+ symbolType.getNameStr());
+        //System.out.println(" symbolType.getNameStr(): "+ symbolType.getNameStr());
         // <editor-fold desc="Checking if the vessel is within the geofence boundary" defaultstate="collapsed">
         if (symbolType!= null && symbolType.getNameStr().equals("polygon")) {
             ArrayList<Double> arrayList_longitude = new ArrayList<Double>();
@@ -85,8 +92,8 @@ public class GeofenceUtil {
                 arrayList_longitude.add(genericPair_coordinate.getFirstObject());
                 arrayList_latitude.add(genericPair_coordinate.getSecondObject());
             }
-            System.out.println("arrayList_latitude: "+arrayList_latitude);
-            System.out.println("arrayList_longitude: "+arrayList_longitude);
+            //System.out.println("arrayList_latitude: "+arrayList_latitude);
+            //System.out.println("arrayList_longitude: "+arrayList_longitude);
             boolean_isInsideGeofence = GeoMetrics.isInsidePolygon(double_latitude, double_longitude, arrayList_latitude, arrayList_longitude);
         } else {
             boolean_isInsideGeofence = GeoMetrics.isInsideCircle(double_latitude, double_longitude, geofence.getLatitudeDbl(), geofence.getLongitudeDbl(), geofence.getRadiusDbl());
@@ -94,9 +101,9 @@ public class GeofenceUtil {
         // </editor-fold>
         ArrayList<Integer> arrayList_triggerIndex = new ArrayList<Integer>();
         boolean boolean_triggerAlert = false;
-        System.out.println("boolean_isInsideGeofence: "+boolean_isInsideGeofence);
+        //System.out.println("boolean_isInsideGeofence: "+boolean_isInsideGeofence);
         if (boolean_isInsideGeofence) {
-            System.out.println("boolean_isInsideGeofence true");
+           // System.out.println("boolean_isInsideGeofence true");
             for (GeofenceAlertTrigger geofenceAlertTrigger : arrayList_geofenceAlertTrigger) {
                 Integer integer_index = geofenceAlertTrigger.getTriggerIndexInt();
 

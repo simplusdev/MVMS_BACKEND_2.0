@@ -13,6 +13,8 @@ public class Vessel  implements Serializable {
 
     private Fleet fleet;
 
+    private VesselType vesselType;
+
     private Position positionReportLast;
 
     private Boolean active;
@@ -62,13 +64,13 @@ public class Vessel  implements Serializable {
 
     private String assignedRouteStr;
 
-    private String alertRecipientsStr;
+    private String email;
 
     private String callsignStr;
 
     private Double repeatIndicatorDbl;
 
-    @JsonIgnore
+
     private Integer aisVersionInt;
 
     private String aisVersionStr;
@@ -84,7 +86,7 @@ public class Vessel  implements Serializable {
 
     private String etaStr;
 
-    @JsonIgnore
+
     private Integer dteInt;
 
     private String dteStr;
@@ -97,12 +99,12 @@ public class Vessel  implements Serializable {
 
     private Integer serialInt;
 
-    @JsonIgnore
+
     private Integer epfdInt;
 
     private String epfdStr;
 
-    @JsonIgnore
+
     private Integer shiptypeInt;
 
     private String shiptypeStr;
@@ -141,6 +143,13 @@ public class Vessel  implements Serializable {
         this.fleet = fleet;
     }
 
+    public VesselType getVesselType() {
+        return vesselType;
+    }
+
+    public void setVesselType(VesselType vesselType) {
+        this.vesselType = vesselType;
+    }
 
     public Position getPositionReportLast() {
         return positionReportLast;
@@ -326,12 +335,12 @@ public class Vessel  implements Serializable {
         this.assignedRouteStr = assignedRouteStr;
     }
 
-    public String getAlertRecipientsStr() {
-        return alertRecipientsStr;
+    public String getEmail() {
+        return email;
     }
 
-    public void setAlertRecipientsStr(String alertRecipientsStr) {
-        this.alertRecipientsStr = alertRecipientsStr;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getCallsignStr() {

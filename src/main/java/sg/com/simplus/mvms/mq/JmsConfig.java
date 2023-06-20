@@ -29,8 +29,8 @@ public class JmsConfig {
     public ActiveMQConnectionFactory connectionFactory(){
         ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory();
         connectionFactory.setBrokerURL(BROKER_URL);
-        connectionFactory.setPassword(BROKER_USERNAME);
-        connectionFactory.setUserName(BROKER_PASSWORD);
+//        connectionFactory.setPassword(BROKER_USERNAME);
+//        connectionFactory.setUserName(BROKER_PASSWORD);
         return connectionFactory;
     }
 
