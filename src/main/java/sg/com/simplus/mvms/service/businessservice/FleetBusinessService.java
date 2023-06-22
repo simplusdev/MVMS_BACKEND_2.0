@@ -48,4 +48,8 @@ public class FleetBusinessService {
         }
         return fleetListMap;
     }
+
+    public Fleet save(Fleet fleet){
+        return fleetDataService.save(fleet);
+    }
 }

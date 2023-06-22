@@ -9,7 +9,7 @@ import sg.com.simplus.mvms.Constants;
 import sg.com.simplus.mvms.data.dto.PositionReport;
 import sg.com.simplus.mvms.data.dto.PositionReportLast;
 import sg.com.simplus.mvms.data.dto.Vessel;
-import sg.com.simplus.mvms.data.dto.VesselType;
+import sg.com.simplus.mvms.data.dto.VesselTypeAis;
 import sg.com.simplus.mvms.framework.util.GeofenceUtil;
 import sg.com.simplus.mvms.service.businessservice.PositionReportBusinessService;
 import sg.com.simplus.mvms.service.businessservice.VesselBusinessService;
@@ -35,7 +35,7 @@ public class ConsumerService {
     PositionReportLastDataService positionReportLastDataService;
 
     @Autowired
-    VesselTypeLookupService vesselTypeLookupService;
+    VesselTypeAisLookupService vesselTypeLookupService;
 
     @Autowired
     GeofenceUtil geofenceUtil;
@@ -127,9 +127,9 @@ public class ConsumerService {
                 vesselDb.setNameStr(vessel.getNameStr());
                 vesselDb.setVesselTypeStr(vessel.getVesselTypeStr()); // need to confirm to Ben
                 if(vessel.getShiptypeInt()!=null){
-                    VesselType vesselType = vesselTypeLookupService.getVesselTypeByCode(vessel.getShiptypeInt());
+                    VesselTypeAis vesselType = vesselTypeLookupService.getVesselTypeByCode(vessel.getShiptypeInt());
                     if(vesselType!=null){
-                        vesselDb.setVesselType(vesselType);
+                        vesselDb.setVesselTypeAis(vesselType);
                     }
                 }
                 vesselDb.setCallsignStr(vessel.getCallsignStr());
@@ -155,9 +155,9 @@ public class ConsumerService {
                 vesselDb.setNameStr(vessel.getNameStr());
                 vesselDb.setVesselTypeStr(vessel.getVesselTypeStr()); // need to confirm to Ben
                 if(vessel.getShiptypeInt()!=null){
-                    VesselType vesselType = vesselTypeLookupService.getVesselTypeByCode(vessel.getShiptypeInt());
+                    VesselTypeAis vesselType = vesselTypeLookupService.getVesselTypeByCode(vessel.getShiptypeInt());
                     if(vesselType!=null){
-                        vesselDb.setVesselType(vesselType);
+                        vesselDb.setVesselTypeAis(vesselType);
                     }
                 }
                 vesselDb.setCallsignStr(vessel.getCallsignStr());

@@ -62,4 +62,9 @@ public class BusinessManager {
     @Autowired
     public VesselBusinessService vesselBusinessService;
 
+    @Autowired
+    public VesselTypeProjectBusinessService vesselTypeProjectBusinessService;
+
+    @Autowired
+    public VesselTypeAisBusinessService vesselTypeAisBusinessService;
 }

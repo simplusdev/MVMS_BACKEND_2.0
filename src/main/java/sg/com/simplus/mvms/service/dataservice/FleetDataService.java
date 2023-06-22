@@ -20,6 +20,10 @@ public class FleetDataService extends DataServiceEngine<FleetEntity,Fleet> {
         return toDtoList(fleetRepository.findAll());
     }
 
+    public Fleet save(Fleet fleet){
+        return  toDto(fleetRepository.save(toEntity(fleet)) );
+    }
+
     @Override
     public  void customDto(Object entity, Object dto) {
     }

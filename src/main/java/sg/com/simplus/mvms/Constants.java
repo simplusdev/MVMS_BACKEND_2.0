@@ -27,10 +27,14 @@ public class Constants {
     //endpoint for fleet
     public static final String ENDPOINT_URI_FLEET_GET_ALL = "/fleet/get-all";
 
+    public static final String ENDPOINT_URI_FLEET_CREATE = "/fleet/create";
+
     //endpoint for vessel
     public static final String ENDPOINT_URI_VESSEL_GET_ALL = "/vessel/get-all";
     public static final String ENDPOINT_URI_VESSEL_CREATE = "/vessel/create";
     public static final String ENDPOINT_URI_VESSEL_UPDATE = "/vessel/update";
+
+    public static final String ENDPOINT_URI_VESSEL_UPDATE_EMAIL = "/vessel/update-email";
     public static final String ENDPOINT_URI_VESSEL_ADD_TO_FLEET = "/vessel/add-to-fleet";
     public static final String ENDPOINT_URI_VESSEL_REMOVE_FROM_FLEET = "/vessel/remove-from-fleet";
 
@@ -64,6 +68,12 @@ public class Constants {
     public static final String ENDPOINT_URI_SYMBOL_CREATE = "/symbol/create";
     public static final String ENDPOINT_URI_SYMBOL_UPDATE = "/symbol/update";
     public static final String ENDPOINT_URI_SYMBOL_DELETE = "/symbol/delete/{id}";
+
+    //endpoint for vessel type ais
+    public static final String ENDPOINT_URI_VESSEL_TYPE_AIS_GET_ALL = "/vessel-type-ais/get-all";
+
+    //endpoint for vessel type project
+    public static final String ENDPOINT_URI_VESSEL_TYPE_PROJECT_GET_ALL = "/vessel-type-project/get-all";
 
     public static final String JMS_QUEUE_NAME = "AIS_DECODING_SERVICE.QUEUE";
 

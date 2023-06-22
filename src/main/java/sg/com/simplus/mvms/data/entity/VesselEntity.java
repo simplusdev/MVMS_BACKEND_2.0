@@ -21,8 +21,12 @@ public class VesselEntity  implements Serializable {
     private FleetEntity fleet;
 
     @ManyToOne(  )
-    @JoinColumn(foreignKey = @ForeignKey(name = "vessel_type_id"), name = "vessel_type_id")
-    private VesselTypeEntity vesselType;
+    @JoinColumn(foreignKey = @ForeignKey(name = "vessel_type_ais_id"), name = "vessel_type_ais_id")
+    private VesselTypeAisEntity vesselTypeAis;
+
+    @ManyToOne(  )
+    @JoinColumn(foreignKey = @ForeignKey(name = "vessel_type_project_id"), name = "vessel_type_project_id")
+    private VesselTypeProjectEntity vesselTypeProject;
 
     @Column(name = "name")
     private String nameStr;
@@ -91,7 +95,7 @@ public class VesselEntity  implements Serializable {
     private String assignedRouteStr;
 
     @Column(name = "email")
-    private String email;
+    private String emailStr;
 
     @Column(name = "callsign")
     private String callsignStr;
@@ -166,21 +170,20 @@ public class VesselEntity  implements Serializable {
         this.fleet = fleet;
     }
 
-    //    public Integer getFleetIdInt() {
-//        return fleetIdInt;
-//    }
-//
-//    public void setFleetIdInt(Integer fleetIdInt) {
-//        this.fleetIdInt = fleetIdInt;
-//    }
-
-
-    public VesselTypeEntity getVesselType() {
-        return vesselType;
+    public VesselTypeAisEntity getVesselTypeAis() {
+        return vesselTypeAis;
     }
 
-    public void setVesselType(VesselTypeEntity vesselType) {
-        this.vesselType = vesselType;
+    public void setVesselTypeAis(VesselTypeAisEntity vesselTypeAis) {
+        this.vesselTypeAis = vesselTypeAis;
+    }
+
+    public VesselTypeProjectEntity getVesselTypeProject() {
+        return vesselTypeProject;
+    }
+
+    public void setVesselTypeProject(VesselTypeProjectEntity vesselTypeProject) {
+        this.vesselTypeProject = vesselTypeProject;
     }
 
     public String getNameStr() {
@@ -359,12 +362,12 @@ public class VesselEntity  implements Serializable {
         this.assignedRouteStr = assignedRouteStr;
     }
 
-    public String getEmail() {
-        return email;
+    public String getEmailStr() {
+        return emailStr;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setEmailStr(String emailStr) {
+        this.emailStr = emailStr;
     }
 
     public String getCallsignStr() {

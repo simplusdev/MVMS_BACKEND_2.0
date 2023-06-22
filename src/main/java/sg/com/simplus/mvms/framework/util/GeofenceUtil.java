@@ -58,7 +58,7 @@ public class GeofenceUtil {
 
                 try {
                     producerService.sendToGeofenceAlertTriggerTopic( string_message);
-                    String emails = vessel.getEmail();
+                    String emails = vessel.getEmailStr();
                     if(emails!=null) {
                         String emailArr[] = emails.split(";");
                         for(int i=0;i<emailArr.length;i++) {

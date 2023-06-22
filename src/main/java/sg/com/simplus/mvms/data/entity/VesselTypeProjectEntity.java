@@ -1,17 +1,28 @@
-package sg.com.simplus.mvms.data.dto;
+package sg.com.simplus.mvms.data.entity;
 
+import org.springframework.stereotype.Component;
+
+import javax.persistence.*;
 import java.io.Serializable;
 
-public class VesselType implements Serializable {
+@Component
+@Entity
+@Table(name = "vessel_type_project")
+public class VesselTypeProjectEntity implements Serializable {
 
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    @Id
     private Integer idInt;
 
-    private Integer codeInt;
 
+    @Column(name = "description")
     private String descriptionStr;
 
+    @Column(name = "color")
     private String colorStr;
 
+    @Column(name = "icon")
     private String iconStr;
 
     public Integer getIdInt() {
@@ -20,14 +31,6 @@ public class VesselType implements Serializable {
 
     public void setIdInt(Integer idInt) {
         this.idInt = idInt;
-    }
-
-    public Integer getCodeInt() {
-        return codeInt;
-    }
-
-    public void setCodeInt(Integer codeInt) {
-        this.codeInt = codeInt;
     }
 
     public String getDescriptionStr() {
@@ -53,5 +56,4 @@ public class VesselType implements Serializable {
     public void setIconStr(String iconStr) {
         this.iconStr = iconStr;
     }
-
- }
+}

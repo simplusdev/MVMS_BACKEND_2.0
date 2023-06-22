@@ -1,7 +1,6 @@
 package sg.com.simplus.mvms.data.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 import java.io.Serializable;
@@ -13,7 +12,9 @@ public class Vessel  implements Serializable {
 
     private Fleet fleet;
 
-    private VesselType vesselType;
+    private VesselTypeAis vesselTypeAis;
+
+    private VesselTypeProject vesselTypeProject;
 
     private Position positionReportLast;
 
@@ -64,7 +65,7 @@ public class Vessel  implements Serializable {
 
     private String assignedRouteStr;
 
-    private String email;
+    private String emailStr;
 
     private String callsignStr;
 
@@ -143,12 +144,20 @@ public class Vessel  implements Serializable {
         this.fleet = fleet;
     }
 
-    public VesselType getVesselType() {
-        return vesselType;
+    public VesselTypeAis getVesselTypeAis() {
+        return vesselTypeAis;
     }
 
-    public void setVesselType(VesselType vesselType) {
-        this.vesselType = vesselType;
+    public void setVesselTypeAis(VesselTypeAis vesselTypeAis) {
+        this.vesselTypeAis = vesselTypeAis;
+    }
+
+    public VesselTypeProject getVesselTypeProject() {
+        return vesselTypeProject;
+    }
+
+    public void setVesselTypeProject(VesselTypeProject vesselTypeProject) {
+        this.vesselTypeProject = vesselTypeProject;
     }
 
     public Position getPositionReportLast() {
@@ -335,12 +344,12 @@ public class Vessel  implements Serializable {
         this.assignedRouteStr = assignedRouteStr;
     }
 
-    public String getEmail() {
-        return email;
+    public String getEmailStr() {
+        return emailStr;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setEmailStr(String emailStr) {
+        this.emailStr = emailStr;
     }
 
     public String getCallsignStr() {
