@@ -216,14 +216,14 @@ public class ConsumerService {
         //System.out.println(" vessel mmsiInt: "+mmsiInt);
         Vessel vesselDb = vesselBusinessService.findByMmsiInt(mmsiInt);
         //System.out.println(" vesselDb: "+vesselDb);
-// for test, comment insert vessel
-//        if(vesselDb==null){
-//            vessel.setCreatedDateDti(new Date());
-//            vesselDb =  vesselBusinessService.save(vessel);
-//            //System.out.println(" vesselDb getIdInt after save: "+vesselDb.getIdInt());
-//        }
+        // for test, comment insert vessel
+        if(vesselDb==null){
+            vessel.setCreatedDateDti(new Date());
+            vesselDb =  vesselBusinessService.save(vessel);
+            //System.out.println(" vesselDb getIdInt after save: "+vesselDb.getIdInt());
+        }
         positionReport.setVessel(vesselDb);
-        // for test, add check vesselDb != null
+
         if(vesselDb!=null) {
             positionReportBusinessService.deleteForAisUpdate(mmsiInt, positionReport.getTimestampDti());
             positionReportBusinessService.save(positionReport);

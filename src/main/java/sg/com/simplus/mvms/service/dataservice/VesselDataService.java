@@ -13,7 +13,9 @@ import sg.com.simplus.mvms.data.ref.ShipTypeRef;
 import sg.com.simplus.mvms.data.repository.VesselRepository;
 import sg.com.simplus.mvms.framework.engine.DataServiceEngine;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class VesselDataService extends DataServiceEngine<VesselEntity,Vessel> {
@@ -25,8 +27,14 @@ public class VesselDataService extends DataServiceEngine<VesselEntity,Vessel> {
 
     public List<Vessel> findAll(){
         List<Vessel> vesselList =toDtoList(vesselRepository.findAll() );
+        List<PositionReportLast>  positionReportLastList =  positionReportLastDataService.findAll();
+        Map<Integer,PositionReportLast> prlMap = new HashMap<>();
+        for(PositionReportLast prl : positionReportLastList){
+            prlMap.put(prl.getVesselIdInt(),prl);
+        }
         for(Vessel vessel: vesselList){
-            PositionReportLast positionReportLast = positionReportLastDataService.findOneByVesselIdInt(vessel.getIdInt());
+            //PositionReportLast positionReportLast = positionReportLastDataService.findOneByVesselIdInt(vessel.getIdInt());
+            PositionReportLast positionReportLast = prlMap.get(vessel.getIdInt());
             vessel.setPositionReportLast(positionReportLast);
         }
         return vesselList;

@@ -31,9 +31,6 @@ public class MvmsApplication  implements ApplicationRunner {
 
 	public static void main(String[] args) throws JsonProcessingException {
 		ConfigurableApplicationContext appContext = SpringApplication.run(MvmsApplication.class, args);
-		ProducerService producerService = appContext.getBean(ProducerService.class);
-		//producerService.sendToQueue();
-		//producerService.sendToTopic();
 	}
 
 	@Override
