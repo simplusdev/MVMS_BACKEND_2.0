@@ -35,7 +35,7 @@ public class GeofenceController extends GeofenceManager {
     @PostMapping(value = Constants.ENDPOINT_URI_GEOFENCE_UPDATE )
     public  ResponseEntity<Object> updateGeofence(
             @RequestBody Geofence geofence) {
-        return ResponseMvms.buildResponse(saveReturnMap(geofence), StatusType.RESULT_SUCCESS.getCode(), HttpStatus.OK,
+        return ResponseMvms.buildResponse(updateReturnMap(geofence), StatusType.RESULT_SUCCESS.getCode(), HttpStatus.OK,
                 StatusType.RESULT_SUCCESS.getMessage());
     }
 

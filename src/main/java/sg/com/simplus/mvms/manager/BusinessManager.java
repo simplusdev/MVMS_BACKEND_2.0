@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 import sg.com.simplus.mvms.Constants;
 import sg.com.simplus.mvms.data.repository.VesselRepository;
 import sg.com.simplus.mvms.framework.util.ViewData;
+import sg.com.simplus.mvms.mq.ProducerService;
 import sg.com.simplus.mvms.service.businessservice.*;
 import sg.com.simplus.mvms.service.dataservice.FleetDataService;
 
@@ -67,4 +68,7 @@ public class BusinessManager {
 
     @Autowired
     public VesselTypeAisBusinessService vesselTypeAisBusinessService;
+
+    @Autowired
+    ProducerService producerService;
 }

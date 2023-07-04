@@ -20,6 +20,11 @@ public class GeofenceAlertTriggerEntity  implements Serializable {
     @JoinColumn(foreignKey = @ForeignKey(name = "geofence_id"), name = "geofence_id")
     private GeofenceEntity geofence;
 
+    @ManyToOne( )
+    @JoinColumn(foreignKey = @ForeignKey(name = "fleet_id"), name = "fleet_id")
+    private FleetEntity fleet;
+
+
     @Column(name = "trigger_index")
     private Integer triggerIndexInt;
 
@@ -41,6 +46,12 @@ public class GeofenceAlertTriggerEntity  implements Serializable {
     @Column(name = "max_draft")
     private Double maxDraftDbl;
 
+    @Column(name = "min_speed")
+    private Double minSpeedDbl;
+
+    @Column(name = "max_speed")
+    private Double maxSpeedDbl;
+
     @Column(name = "timestamp")
     private Date timestampDti;
 
@@ -59,6 +70,16 @@ public class GeofenceAlertTriggerEntity  implements Serializable {
     public void setGeofence(GeofenceEntity geofence) {
         this.geofence = geofence;
     }
+
+    public FleetEntity getFleet() {
+        return fleet;
+    }
+
+    public void setFleet(FleetEntity fleet) {
+        this.fleet = fleet;
+    }
+
+
 
     public Integer getTriggerIndexInt() {
         return triggerIndexInt;
@@ -114,6 +135,22 @@ public class GeofenceAlertTriggerEntity  implements Serializable {
 
     public void setMaxDraftDbl(Double maxDraftDbl) {
         this.maxDraftDbl = maxDraftDbl;
+    }
+
+    public Double getMinSpeedDbl() {
+        return minSpeedDbl;
+    }
+
+    public void setMinSpeedDbl(Double minSpeedDbl) {
+        this.minSpeedDbl = minSpeedDbl;
+    }
+
+    public Double getMaxSpeedDbl() {
+        return maxSpeedDbl;
+    }
+
+    public void setMaxSpeedDbl(Double maxSpeedDbl) {
+        this.maxSpeedDbl = maxSpeedDbl;
     }
 
     public Date getTimestampDti() {

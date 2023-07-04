@@ -1,14 +1,21 @@
 package sg.com.simplus.mvms.data.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import sg.com.simplus.mvms.data.entity.FleetEntity;
+import sg.com.simplus.mvms.data.entity.VesselTypeAisEntity;
+import sg.com.simplus.mvms.data.entity.VesselTypeProjectEntity;
 
+import javax.persistence.Column;
 import java.util.Date;
+import java.util.List;
 
 public class GeofenceAlertTrigger {
 
     private Integer idInt;
 
     private Geofence geofence;
+
+    private FleetEntity fleet;
 
     private Integer triggerIndexInt;
 
@@ -23,6 +30,14 @@ public class GeofenceAlertTrigger {
     private Double minDraftDbl;
 
     private Double maxDraftDbl;
+
+    private Double minSpeedDbl;
+
+    private Double maxSpeedDbl;
+
+    private List<VesselTypeAis> vesselTypeAisList;
+
+    private List<VesselTypeProject> vesselTypeProjectList;
 
     @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
     private Date timestampDti;
@@ -41,6 +56,14 @@ public class GeofenceAlertTrigger {
 
     public void setGeofence(Geofence geofence) {
         this.geofence = geofence;
+    }
+
+    public FleetEntity getFleet() {
+        return fleet;
+    }
+
+    public void setFleet(FleetEntity fleet) {
+        this.fleet = fleet;
     }
 
     public Integer getTriggerIndexInt() {
@@ -97,6 +120,38 @@ public class GeofenceAlertTrigger {
 
     public void setMaxDraftDbl(Double maxDraftDbl) {
         this.maxDraftDbl = maxDraftDbl;
+    }
+
+    public Double getMinSpeedDbl() {
+        return minSpeedDbl;
+    }
+
+    public void setMinSpeedDbl(Double minSpeedDbl) {
+        this.minSpeedDbl = minSpeedDbl;
+    }
+
+    public Double getMaxSpeedDbl() {
+        return maxSpeedDbl;
+    }
+
+    public void setMaxSpeedDbl(Double maxSpeedDbl) {
+        this.maxSpeedDbl = maxSpeedDbl;
+    }
+
+    public List<VesselTypeAis> getVesselTypeAisList() {
+        return vesselTypeAisList;
+    }
+
+    public void setVesselTypeAisList(List<VesselTypeAis> vesselTypeAisList) {
+        this.vesselTypeAisList = vesselTypeAisList;
+    }
+
+    public List<VesselTypeProject> getVesselTypeProjectList() {
+        return vesselTypeProjectList;
+    }
+
+    public void setVesselTypeProjectList(List<VesselTypeProject> vesselTypeProjectList) {
+        this.vesselTypeProjectList = vesselTypeProjectList;
     }
 
     public Date getTimestampDti() {

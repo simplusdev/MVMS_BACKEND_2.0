@@ -10,7 +10,7 @@ public class Geofence {
 
     private Integer idInt;
 
-    @JsonIgnore
+
     private List<GeofenceAlertTrigger> geofenceAlertTriggerList;
 
     private String nameStr;

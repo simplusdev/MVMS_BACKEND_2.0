@@ -41,4 +41,17 @@ public class ProducerService {
         jmsTemplate.convertAndSend(Constants.JMS_TOPIC_NAME_GEOFENCE_ALERT_TRIGGER,message);
     }
 
+    public void sendToGeofenceTopic( Object object) throws JsonProcessingException {
+        ObjectMapper mapper = new ObjectMapper();
+        String sObj = "";
+        try {
+            sObj = mapper.writeValueAsString(object);
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
+
+
+        jmsTemplate.convertAndSend(Constants.JMS_TOPIC_NAME_GEOFENCE, sObj);
+    }
+
 }

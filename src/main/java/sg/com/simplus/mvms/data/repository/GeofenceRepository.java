@@ -12,4 +12,7 @@ public interface GeofenceRepository extends JpaRepository<GeofenceEntity, Intege
     public void deleteByIdInt(@Param("idInt") Integer idInt);
 
     public List<GeofenceEntity> findByDeletedIntNot(@Param("deletedInt") Integer deletedInt);
+
+    public List<GeofenceEntity> findByIdInt(@Param("idInt") Integer idInt);
+
 }

@@ -12,4 +12,5 @@ public interface GeofenceAlertTriggerRepository extends JpaRepository<GeofenceAl
 
     public List<GeofenceAlertTriggerEntity> findByGeofenceIdInt(@Param("geofenceIdInt") Integer geofenceIdInt);
 
+    public void deleteByGeofenceIdInt(@Param("geofenceIdInt") Integer geofenceIdInt);
 }

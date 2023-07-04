@@ -79,6 +79,8 @@ public class Constants {
 
     public static final String JMS_TOPIC_NAME_VESSEL = "BACKEND_VESSEL_POSITION.TOPIC";
 
+    public static final String JMS_TOPIC_NAME_GEOFENCE = "BACKEND_GEOFENCE.TOPIC";
+
     public static final String JMS_TOPIC_NAME_GEOFENCE_ALERT_TRIGGER = "BACKEND_GEOFENCE_ALERT_TRIGGER.TOPIC";
 
 }
