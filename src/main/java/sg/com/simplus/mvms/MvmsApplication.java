@@ -11,6 +11,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.jms.annotation.EnableJms;
 import sg.com.simplus.mvms.framework.engine.LabelPropertyEngine;
 import sg.com.simplus.mvms.framework.engine.MulticastEngine;
+import sg.com.simplus.mvms.mq.AlertLookupService;
 import sg.com.simplus.mvms.mq.GeofenceLookupService;
 import sg.com.simplus.mvms.mq.ProducerService;
 import sg.com.simplus.mvms.mq.VesselTypeAisLookupService;
@@ -29,6 +30,9 @@ public class MvmsApplication  implements ApplicationRunner {
 	@Autowired
     VesselTypeAisLookupService vesselTypeLookupService;
 
+	@Autowired
+	AlertLookupService alertLookupService;
+
 	public static void main(String[] args) throws JsonProcessingException {
 		ConfigurableApplicationContext appContext = SpringApplication.run(MvmsApplication.class, args);
 	}
@@ -39,6 +43,7 @@ public class MvmsApplication  implements ApplicationRunner {
 		MulticastEngine.init();
 		labelPropertyEngine.init();
 		geofenceLookupService.fetch();
+		alertLookupService.fetch();
 		vesselTypeLookupService.fetch();
 	}
 }

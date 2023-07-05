@@ -4,11 +4,16 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import sg.com.simplus.mvms.data.dto.*;
+import sg.com.simplus.mvms.mq.AlertLookupService;
 import sg.com.simplus.mvms.mq.GeofenceLookupService;
 import sg.com.simplus.mvms.mq.ProducerService;
+import sg.com.simplus.mvms.service.dataservice.AlertDataService;
+import sg.com.simplus.mvms.service.dataservice.UnAlertDataService;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 @Component
 public class GeofenceUtil {
@@ -16,20 +21,31 @@ public class GeofenceUtil {
     @Autowired
     ProducerService producerService;
 
+    @Autowired
+    AlertDataService alertDataService;
+
+    @Autowired
+    UnAlertDataService unAlertDataService;
+
+    @Autowired
+    AlertLookupService alertLookupService;
+
     public  void checkGeofenceInfringement(Vessel vessel, PositionReport positionReport){
         Double double_longitude = positionReport.getLongitudeDbl() != null ? positionReport.getLongitudeDbl() : 0;
         Double double_latitude = positionReport.getLatitudeDbl() != null ?  positionReport.getLatitudeDbl() : 0;
-        checkGeofenceInfringement(vessel,double_longitude,double_latitude);
+        Date timestampDti = positionReport.getTimestampDti();
+        checkGeofenceInfringement(vessel,double_longitude,double_latitude,timestampDti);
     }
 
     public  void checkGeofenceInfringement(Vessel vessel, PositionReportLast positionReport){
 
         Double double_longitude = positionReport.getLongitudeDbl() != null ? positionReport.getLongitudeDbl() : 0;
         Double double_latitude = positionReport.getLatitudeDbl() != null ?  positionReport.getLatitudeDbl() : 0;
-        checkGeofenceInfringement(vessel,double_longitude,double_latitude);
+        Date timestampDti = positionReport.getTimestampDti();
+        checkGeofenceInfringement(vessel,double_longitude,double_latitude,timestampDti);
     }
 
-    public  void checkGeofenceInfringement(Vessel vessel, Double _double_longitude,  Double _double_latitude ){
+    public  void checkGeofenceInfringement(Vessel vessel, Double _double_longitude,  Double _double_latitude , Date timestampDti){
         String vesselName =  vessel.getNameStr();
         Double double_longitude = _double_longitude != null ? _double_longitude : 0;
         Double double_latitude = _double_latitude != null ?  _double_latitude : 0;
@@ -58,6 +74,16 @@ public class GeofenceUtil {
 
                 try {
                     producerService.sendToGeofenceAlertTriggerTopic( string_message);
+                    Alert alert = new Alert();
+                    alert.setAlertStr(string_message);
+                    alert.setGeofenceNameStr(geofence.getNameStr());
+                    alert.setVessel(vessel);
+                    alert.setTimestampDti(timestampDti);
+                    alertDataService.deleteByVesselIdInt(vessel.getIdInt());
+                    alertDataService.save(alert);
+                    Map<Integer,Alert> alertMap = alertLookupService.getAlertMap();
+                    alertMap.remove(vessel.getIdInt());
+                    alertMap.put(vessel.getIdInt(),alert);
                     String emails = vessel.getEmailStr();
                     if(emails!=null) {
                         String emailArr[] = emails.split(";");
@@ -67,6 +93,18 @@ public class GeofenceUtil {
                     }
                 } catch (JsonProcessingException e) {
                     throw new RuntimeException(e);
+                }
+
+            } else {
+                // checking that vessel should be unalert or not
+                Map<Integer,Alert> alertMap = alertLookupService.getAlertMap();
+                if(alertMap.containsKey(vessel.getIdInt())){
+                    UnAlert unAlert = new UnAlert();
+                    unAlert.setVessel(vessel);
+                    unAlert.setTimestampDti(timestampDti);
+                    unAlertDataService.deleteByVesselIdInt(vessel.getIdInt());
+                    unAlertDataService.save(unAlert);
+                    alertMap.remove(vessel.getIdInt());
                 }
 
             }

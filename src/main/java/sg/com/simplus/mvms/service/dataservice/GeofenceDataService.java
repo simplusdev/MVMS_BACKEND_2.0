@@ -56,6 +56,8 @@ public class GeofenceDataService extends DataServiceEngine<GeofenceEntity,Geofen
     }
 
     public Geofence save(Geofence geofence){
+        String email  = geofence.getEmailStr();
+        System.out.println("GeofenceDataService save geofence email: "+email);
         return  toDto(geofenceRepository.save(toEntity(geofence)) );
     }
 

@@ -31,6 +31,8 @@ public class Geofence {
 
     private String colorStr;
 
+    private String emailStr;
+
     private Boolean deletedBln;
 
     @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
@@ -125,6 +127,14 @@ public class Geofence {
 
     public void setColorStr(String colorStr) {
         this.colorStr = colorStr;
+    }
+
+    public String getEmailStr() {
+        return emailStr;
+    }
+
+    public void setEmailStr(String emailStr) {
+        this.emailStr = emailStr;
     }
 
     public Boolean getDeletedBln() {

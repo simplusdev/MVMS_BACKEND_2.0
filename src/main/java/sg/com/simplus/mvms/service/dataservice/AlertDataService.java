@@ -2,9 +2,10 @@ package sg.com.simplus.mvms.service.dataservice;
 
 import org.modelmapper.PropertyMap;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 import sg.com.simplus.mvms.data.dto.Alert;
-import sg.com.simplus.mvms.data.dto.Vessel;
+import sg.com.simplus.mvms.data.dto.Alert;
 import sg.com.simplus.mvms.data.entity.AlertEntity;
 import sg.com.simplus.mvms.data.repository.AlertRepository;
 import sg.com.simplus.mvms.framework.engine.DataServiceEngine;
@@ -20,7 +21,11 @@ public class AlertDataService extends DataServiceEngine<AlertEntity,Alert> {
         return toDtoList(alertRepository.findAll());
     }
 
-    public Vessel save(Alert alert){
+    public void deleteByVesselIdInt( Integer vesselIdInt){
+        alertRepository.deleteByVesselIdInt(vesselIdInt);
+    }
+
+    public Alert save(Alert alert){
         return  toDto(alertRepository.save(toEntity(alert)) );
     }
 

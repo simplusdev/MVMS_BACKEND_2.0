@@ -44,6 +44,9 @@ public class GeofenceEntity  implements Serializable {
     @Column(name = "color")
     private String colorStr;
 
+    @Column(name = "email")
+    private String emailStr;
+
     @Column(name = "deleted")
     private Integer deletedInt;
 
@@ -131,6 +134,14 @@ public class GeofenceEntity  implements Serializable {
 
     public void setColorStr(String colorStr) {
         this.colorStr = colorStr;
+    }
+
+    public String getEmailStr() {
+        return emailStr;
+    }
+
+    public void setEmailStr(String emailStr) {
+        this.emailStr = emailStr;
     }
 
     public Integer getDeletedInt() {

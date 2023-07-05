@@ -2,6 +2,7 @@ package sg.com.simplus.mvms.service.dataservice;
 
 import org.modelmapper.PropertyMap;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 import sg.com.simplus.mvms.data.dto.UnAlert;
 import sg.com.simplus.mvms.data.dto.Vessel;
@@ -18,6 +19,10 @@ public class UnAlertDataService extends DataServiceEngine<UnAlertEntity,UnAlert>
 
     public List<UnAlert> findAll(){
         return toDtoList(unAlertRepository.findAll());
+    }
+
+    public void deleteByVesselIdInt(Integer vesselIdInt){
+        unAlertRepository.deleteByVesselIdInt(vesselIdInt);
     }
 
     public Vessel save(UnAlert unAlert){

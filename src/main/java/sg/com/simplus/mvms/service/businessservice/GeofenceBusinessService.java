@@ -26,6 +26,7 @@ public class GeofenceBusinessService {
     }
 
     public Geofence save(Geofence geofence){
+        System.out.println("GeofenceBusinessService save geofence email: "+geofence.getEmailStr());
         List<GeofenceAlertTrigger> geofenceAlertTriggerList = geofence.getGeofenceAlertTriggerList();
         Geofence geofenceSaved =  geofenceDataService.save(geofence);
         geofenceAlertTriggerDataService.deleteByGeofenceIdInt(geofence.getIdInt());
@@ -37,6 +38,7 @@ public class GeofenceBusinessService {
     }
 
     public Geofence update(Geofence geofence){
+        System.out.println("GeofenceBusinessService before update geofence email: "+geofence.getEmailStr());
         Geofence geofenceDb = geofenceDataService.findByIdInt(geofence.getIdInt());
         List<GeofenceAlertTrigger> geofenceAlertTriggerList = geofence.getGeofenceAlertTriggerList();
         for(GeofenceAlertTrigger geofenceAlertTrigger: geofenceAlertTriggerList){
@@ -58,6 +60,7 @@ public class GeofenceBusinessService {
         }
         geofence.setSymbolType(geofenceDb.getSymbolType());
         geofence.setCreatedDateDti(geofenceDb.getCreatedDateDti());
+        System.out.println("GeofenceBusinessService after update geofence email: "+geofence.getEmailStr());
         return geofenceDataService.save(geofence);
     }
 
