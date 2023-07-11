@@ -50,7 +50,7 @@ public class ConsumerService {
 
 
         //System.out.println(new Date()+" Received message ");
-        processReceivedMessage(jsonMessage);
+        //processReceivedMessage(jsonMessage);
         CompletableFuture<Void> future = CompletableFuture.runAsync(new Runnable() {
             @Override
             public void run() {

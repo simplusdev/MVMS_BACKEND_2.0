@@ -8,7 +8,11 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.Bean;
 import org.springframework.jms.annotation.EnableJms;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import sg.com.simplus.mvms.framework.engine.LabelPropertyEngine;
 import sg.com.simplus.mvms.framework.engine.MulticastEngine;
 import sg.com.simplus.mvms.mq.AlertLookupService;
@@ -45,5 +49,16 @@ public class MvmsApplication  implements ApplicationRunner {
 		geofenceLookupService.fetch();
 		alertLookupService.fetch();
 		vesselTypeLookupService.fetch();
+	}
+
+	@Bean
+	public WebMvcConfigurer corsConfigurer()
+	{
+		return new WebMvcConfigurer() {
+			@Override
+			public void addCorsMappings(CorsRegistry registry) {
+				registry.addMapping("/**").allowedOrigins("*");
+			}
+		};
 	}
 }

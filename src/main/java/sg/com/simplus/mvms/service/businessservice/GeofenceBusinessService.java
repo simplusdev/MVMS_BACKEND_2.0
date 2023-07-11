@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import sg.com.simplus.mvms.data.dto.Geofence;
 import sg.com.simplus.mvms.data.dto.GeofenceAlertTrigger;
+import sg.com.simplus.mvms.mq.GeofenceLookupService;
 import sg.com.simplus.mvms.service.dataservice.GeofenceAlertTriggerDataService;
 import sg.com.simplus.mvms.service.dataservice.GeofenceDataService;
 import sg.com.simplus.mvms.service.mapperservice.GeofenceMapper;
@@ -20,6 +21,9 @@ public class GeofenceBusinessService {
     @Autowired
     GeofenceAlertTriggerDataService geofenceAlertTriggerDataService;
 
+    @Autowired
+    GeofenceLookupService geofenceLookupService;
+
     public  List<Map<String,Object>> findAll( ){
         List<Geofence> geofenceList = geofenceDataService.findAll();
         return GeofenceMapper.getListMap(geofenceList);
@@ -34,6 +38,7 @@ public class GeofenceBusinessService {
             geofenceAlertTrigger.setGeofence(geofenceSaved);
             geofenceAlertTriggerDataService.save(geofenceAlertTrigger);
         }
+        geofenceLookupService.fetch();
         return geofenceSaved;
     }
 
@@ -61,6 +66,7 @@ public class GeofenceBusinessService {
         geofence.setSymbolType(geofenceDb.getSymbolType());
         geofence.setCreatedDateDti(geofenceDb.getCreatedDateDti());
         System.out.println("GeofenceBusinessService after update geofence email: "+geofence.getEmailStr());
+        geofenceLookupService.fetch();
         return geofenceDataService.save(geofence);
     }
 

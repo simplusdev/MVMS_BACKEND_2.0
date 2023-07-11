@@ -75,6 +75,10 @@ public class Constants {
     //endpoint for vessel type project
     public static final String ENDPOINT_URI_VESSEL_TYPE_PROJECT_GET_ALL = "/vessel-type-project/get-all";
 
+    //endpoint for upload
+    public static final String ENDPOINT_URI_UPLOAD_DXF = "/upload/dxf";
+    public static final String ENDPOINT_URI_UPLOAD_ENC = "/upload/enc";
+
     public static final String JMS_QUEUE_NAME = "AIS_DECODING_SERVICE.QUEUE";
 
     public static final String JMS_TOPIC_NAME_VESSEL = "BACKEND_VESSEL_POSITION.TOPIC";
