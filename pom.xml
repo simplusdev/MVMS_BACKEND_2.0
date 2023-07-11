@@ -70,6 +70,76 @@
 			<artifactId>gson</artifactId>
 			<version>2.8.1</version>
 		</dependency>
+		<dependency>
+			<groupId>batik</groupId>
+			<artifactId>batik</artifactId>
+			<scope>system</scope>
+			<version>1</version>
+			<systemPath>${basedir}/src/main/resources/lib/batik-all.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>sourceforge</groupId>
+			<artifactId>kabeja</artifactId>
+			<scope>system</scope>
+			<version>1</version>
+			<systemPath>${basedir}/src/main/resources/lib/kabeja-0.4.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>sourceforge</groupId>
+			<artifactId>kabeja-svg</artifactId>
+			<scope>system</scope>
+			<version>1</version>
+			<systemPath>${basedir}/src/main/resources/lib/kabeja-svg-0.4.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>sourceforge</groupId>
+			<artifactId>kabeja-xslt</artifactId>
+			<scope>system</scope>
+			<version>1</version>
+			<systemPath>${basedir}/src/main/resources/lib/kabeja-xslt.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>miethxml</groupId>
+			<artifactId>miethxml-toolkit</artifactId>
+			<scope>system</scope>
+			<version>1</version>
+			<systemPath>${basedir}/src/main/resources/lib/miethxml-toolkit.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>miethxml</groupId>
+			<artifactId>miethxml-ui</artifactId>
+			<scope>system</scope>
+			<version>1</version>
+			<systemPath>${basedir}/src/main/resources/lib/miethxml-ui.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>pdf-transcoder</groupId>
+			<artifactId>pdf-transcoder</artifactId>
+			<scope>system</scope>
+			<version>1</version>
+			<systemPath>${basedir}/src/main/resources/lib/pdf-transcoder.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>s57</groupId>
+			<artifactId>s57</artifactId>
+			<scope>system</scope>
+			<version>1</version>
+			<systemPath>${basedir}/src/main/resources/lib/s57Library.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>xml-apis</groupId>
+			<artifactId>xml-apis</artifactId>
+			<scope>system</scope>
+			<version>1</version>
+			<systemPath>${basedir}/src/main/resources/lib/xml-apis.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>xml-apis</groupId>
+			<artifactId>xml-apis-ext</artifactId>
+			<scope>system</scope>
+			<version>1</version>
+			<systemPath>${basedir}/src/main/resources/lib/xml-apis-ext.jar</systemPath>
+		</dependency>
 	</dependencies>
 
 	<build>

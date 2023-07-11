@@ -70,5 +70,8 @@ public class BusinessManager {
     public VesselTypeAisBusinessService vesselTypeAisBusinessService;
 
     @Autowired
-    ProducerService producerService;
+    public ProducerService producerService;
+
+    @Autowired
+    public UploadBusinessService uploadBusinessService;
 }

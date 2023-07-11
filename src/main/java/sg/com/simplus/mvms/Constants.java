@@ -77,7 +77,6 @@ public class Constants {
 
     //endpoint for upload
     public static final String ENDPOINT_URI_UPLOAD_DXF = "/upload/dxf";
-    public static final String ENDPOINT_URI_UPLOAD_ENC = "/upload/enc";
 
     public static final String JMS_QUEUE_NAME = "AIS_DECODING_SERVICE.QUEUE";
 
