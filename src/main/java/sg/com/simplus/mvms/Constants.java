@@ -78,6 +78,9 @@ public class Constants {
     //endpoint for upload
     public static final String ENDPOINT_URI_UPLOAD_DXF = "/upload/dxf";
 
+    //endpoint for get image
+    public static final String ENDPOINT_URI_GET_IMAGE_TILE= "/image/tile";
+
     public static final String JMS_QUEUE_NAME = "AIS_DECODING_SERVICE.QUEUE";
 
     public static final String JMS_TOPIC_NAME_VESSEL = "BACKEND_VESSEL_POSITION.TOPIC";
