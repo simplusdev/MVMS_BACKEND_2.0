@@ -19,7 +19,7 @@ public class UserSettingBusinessService {
     @Autowired
     UserSettingDataService userSettingDataService;
 
-    public  List<Map<String,Object>> findAll(ViewData viewData){
+    public  List<Map<String,Object>> findAll(){
         List<UserSetting> userSettingList = userSettingDataService.findAll();
         return UserSettingMapper.getListMap(userSettingList);
     }

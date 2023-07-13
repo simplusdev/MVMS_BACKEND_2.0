@@ -28,6 +28,8 @@ public class Constants {
     public static final String ENDPOINT_URI_FLEET_GET_ALL = "/fleet/get-all";
 
     public static final String ENDPOINT_URI_FLEET_CREATE = "/fleet/create";
+    public static final String ENDPOINT_URI_FLEET_UPDATE = "/fleet/update";
+    public static final String ENDPOINT_URI_FLEET_DELETE_BY_ID = "/fleet/delete-by-id/{id}";
 
     //endpoint for vessel
     public static final String ENDPOINT_URI_VESSEL_GET_ALL = "/vessel/get-all";
@@ -49,6 +51,7 @@ public class Constants {
     public static final String ENDPOINT_URI_NOTE_DELETE_BY_VESSEL_ID = "/note/delete-by-vessel-id/{id}";
 
     //endpoint for user setting
+    public static final String ENDPOINT_URI_USER_DISPLAY_CONFIGURATION_GET_ALL = "/user-display-configuration/get-all";
     public static final String ENDPOINT_URI_USER_DISPLAY_CONFIGURATION_CREATE = "/user-display-configuration/create";
     public static final String ENDPOINT_URI_USER_DISPLAY_CONFIGURATION_UPDATE = "/user-display-configuration/update";
     public static final String ENDPOINT_URI_USER_DISPLAY_CONFIGURATION_DELETE_BY_ID = "/user-display-configuration/delete-by-id/{id}";
@@ -74,9 +77,21 @@ public class Constants {
 
     //endpoint for vessel type project
     public static final String ENDPOINT_URI_VESSEL_TYPE_PROJECT_GET_ALL = "/vessel-type-project/get-all";
+    public static final String ENDPOINT_URI_VESSEL_TYPE_PROJECT_CREATE = "/vessel-type-project/create";
+    public static final String ENDPOINT_URI_VESSEL_TYPE_PROJECT_UPDATE = "/vessel-type-project/update";
 
     //endpoint for upload
     public static final String ENDPOINT_URI_UPLOAD_DXF = "/upload/dxf";
+
+    //endpoint for user group
+    public static final String ENDPOINT_URI_USER_GROUP_CREATE = "/user-group/create";
+    public static final String ENDPOINT_URI_USER_GROUP_UPDATE = "/user-group/update";
+    public static final String ENDPOINT_URI_USER_GROUP_DELETE_BY_ID = "/user-group/delete-by-id/{id}";
+
+    //endpoint for user
+    public static final String ENDPOINT_URI_USER_CREATE = "/user/create";
+    public static final String ENDPOINT_URI_USER_UPDATE = "/user/update";
+    public static final String ENDPOINT_URI_USER_DELETE_BY_ID = "/user/delete-by-id/{id}";
 
     //endpoint for get image
     public static final String ENDPOINT_URI_GET_IMAGE_TILE= "/image/tile";

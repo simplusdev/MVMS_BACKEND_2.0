@@ -10,10 +10,7 @@ import sg.com.simplus.mvms.service.dataservice.VesselDataService;
 import sg.com.simplus.mvms.service.mapperservice.FleetMapper;
 import sg.com.simplus.mvms.service.mapperservice.VesselMapper;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Service
 public class FleetBusinessService {
@@ -50,6 +47,19 @@ public class FleetBusinessService {
     }
 
     public Fleet save(Fleet fleet){
+        fleet.setCreatedDateDti(new Date());
         return fleetDataService.save(fleet);
     }
+
+    public Fleet update(Fleet fleet){
+        Fleet fleetDb = fleetDataService.findByIdInt(fleet.getIdInt());
+        fleet.setCreatedDateDti(fleetDb.getCreatedDateDti());
+        fleet.setModifiedDateDti(new Date());
+        return fleetDataService.save(fleet);
+    }
+
+    public void deleteByIdInt(Integer idInt){
+        fleetDataService.deleteByIdInt(idInt);
+    }
+
 }

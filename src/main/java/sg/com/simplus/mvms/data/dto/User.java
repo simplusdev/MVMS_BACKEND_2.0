@@ -8,7 +8,7 @@ public class User {
 
     private Integer idInt;
 
-    private Integer userGroupIdInt;
+    private UserGroup userGroup;
 
     private String nameStr;
 
@@ -16,7 +16,6 @@ public class User {
 
     private String passwordStr;
 
-    private Boolean activeBln;
 
     private Integer createdByInt;
 
@@ -36,12 +35,12 @@ public class User {
         this.idInt = idInt;
     }
 
-    public Integer getUserGroupIdInt() {
-        return userGroupIdInt;
+    public UserGroup getUserGroup() {
+        return userGroup;
     }
 
-    public void setUserGroupIdInt(Integer userGroupIdInt) {
-        this.userGroupIdInt = userGroupIdInt;
+    public void setUserGroup(UserGroup userGroup) {
+        this.userGroup = userGroup;
     }
 
     public String getNameStr() {
@@ -68,13 +67,6 @@ public class User {
         this.passwordStr = passwordStr;
     }
 
-    public Boolean getActiveBln() {
-        return activeBln;
-    }
-
-    public void setActiveBln(Boolean activeBln) {
-        this.activeBln = activeBln;
-    }
 
     public Integer getCreatedByInt() {
         return createdByInt;

@@ -15,7 +15,7 @@ public class UserMapper {
     }
 
     public static  List<Map<String,Object>> getListMap(List<User> list){
-        List<Map<String,Object>> result =( List<Map<String,Object>> ) new DtoMapper.MapBuilderEngine<List<User>>(list).init().build();
+        List<Map<String,Object>> result =( List<Map<String,Object>> ) new DtoMapper.MapBuilderEngine<List<User>>(list,AuditFields.EXCLUDE).init().build();
         return  result;
     }
 

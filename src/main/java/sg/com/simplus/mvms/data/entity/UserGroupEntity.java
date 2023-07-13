@@ -19,8 +19,9 @@ public class UserGroupEntity   implements Serializable {
     @Column(name = "name")
     private String nameStr;
 
-    @Column(name = "active")
-    private Integer activeInt;
+    @Column(name = "privileges")
+    private String privilegesStr;
+
 
     @Column(name = "created_by")
     private Integer createdByInt;
@@ -50,12 +51,12 @@ public class UserGroupEntity   implements Serializable {
         this.nameStr = nameStr;
     }
 
-    public Integer getActiveInt() {
-        return activeInt;
+    public String getPrivilegesStr() {
+        return privilegesStr;
     }
 
-    public void setActiveInt(Integer activeInt) {
-        this.activeInt = activeInt;
+    public void setPrivilegesStr(String privilegesStr) {
+        this.privilegesStr = privilegesStr;
     }
 
     public Integer getCreatedByInt() {

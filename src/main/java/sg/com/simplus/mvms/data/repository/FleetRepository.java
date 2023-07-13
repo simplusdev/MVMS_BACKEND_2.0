@@ -10,4 +10,8 @@ import java.util.List;
 @Repository
 public interface FleetRepository  extends JpaRepository<FleetEntity, Integer> {
     public List<FleetEntity> findByNameStrContaining(@Param("name") String name);
+
+    public List<FleetEntity> findByIdInt(@Param("idInt") Integer idInt);
+
+    public void deleteByIdInt(@Param("idInt") Integer idInt);
 }

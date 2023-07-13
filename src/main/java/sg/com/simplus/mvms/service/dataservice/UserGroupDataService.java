@@ -2,9 +2,10 @@ package sg.com.simplus.mvms.service.dataservice;
 
 import org.modelmapper.PropertyMap;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 import sg.com.simplus.mvms.data.dto.UserGroup;
-import sg.com.simplus.mvms.data.dto.Vessel;
+import sg.com.simplus.mvms.data.dto.UserGroup;
 import sg.com.simplus.mvms.data.entity.UserGroupEntity;
 import sg.com.simplus.mvms.data.repository.UserGroupRepository;
 import sg.com.simplus.mvms.framework.engine.DataServiceEngine;
@@ -20,8 +21,20 @@ public class UserGroupDataService extends DataServiceEngine<UserGroupEntity,User
         return toDtoList(userGroupRepository.findAll());
     }
 
-    public Vessel save(UserGroup userGroup){
+    public UserGroup save(UserGroup userGroup){
         return  toDto(userGroupRepository.save(toEntity(userGroup)) );
+    }
+
+    public UserGroup findByIdInt(@Param("idInt") Integer idInt){
+        List<UserGroupEntity> list =  userGroupRepository.findByIdInt(idInt);
+        if(list != null && list.size()> 0 ){
+            return toDto(list.get(0));
+        }
+        return null;
+    }
+
+    public void deleteByIdInt(@Param("idInt") Integer idInt){
+        userGroupRepository.deleteByIdInt(idInt);
     }
 
     @Override

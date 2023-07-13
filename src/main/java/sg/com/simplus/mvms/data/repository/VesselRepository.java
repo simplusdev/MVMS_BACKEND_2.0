@@ -11,4 +11,7 @@ import java.util.List;
 @Repository
 public interface VesselRepository extends JpaRepository<VesselEntity, Integer> {
     public  List<VesselEntity> findByMmsiInt(@Param("mmsiInt") Integer mmsiInt);
+
+    public  List<VesselEntity> findByFleetIdInt(@Param("fleetIdInt") Integer fleetIdInt);
+
 }

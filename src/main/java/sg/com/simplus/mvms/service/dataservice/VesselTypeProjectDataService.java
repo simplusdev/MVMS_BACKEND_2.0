@@ -19,7 +19,7 @@ public class VesselTypeProjectDataService extends DataServiceEngine<VesselTypePr
         return toDtoList(vesselTypeProjectRepository.findAll());
     }
 
-    public Vessel save(VesselTypeProject vesselTypeProject){
+    public VesselTypeProject save(VesselTypeProject vesselTypeProject){
         return  toDto(vesselTypeProjectRepository.save(toEntity(vesselTypeProject)) );
     }
 

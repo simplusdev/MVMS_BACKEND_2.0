@@ -12,9 +12,18 @@ import sg.com.simplus.mvms.manager.UserSettingManager;
 import sg.com.simplus.mvms.service.mapperservice.UserSettingMapper;
 
 import javax.transaction.Transactional;
+import java.util.List;
+import java.util.Map;
 
 @RestController
 public class UserSettingController extends UserSettingManager {
+
+    @GetMapping(value = Constants.ENDPOINT_URI_USER_DISPLAY_CONFIGURATION_GET_ALL )
+    public ResponseEntity<Object> getAllUserSetting() {
+        List<Map<String,Object>> list =  userSettingBusinessService.findAll();
+        return ResponseMvms.buildResponse(list, StatusType.RESULT_SUCCESS.getCode(), HttpStatus.OK,
+                StatusType.RESULT_SUCCESS.getMessage());
+    }
 
     @Transactional
     @PostMapping(value = Constants.ENDPOINT_URI_USER_DISPLAY_CONFIGURATION_CREATE )
@@ -25,7 +34,7 @@ public class UserSettingController extends UserSettingManager {
     }
 
     @Transactional
-    @PostMapping(value = Constants.ENDPOINT_URI_USER_DISPLAY_CONFIGURATION_UPDATE)
+    @PatchMapping(value = Constants.ENDPOINT_URI_USER_DISPLAY_CONFIGURATION_UPDATE)
     public ResponseEntity<Object> updateUserSetting(
             @RequestBody UserSetting userSetting) {
         UserSetting userSettingSaved = userSettingBusinessService.save(userSetting);

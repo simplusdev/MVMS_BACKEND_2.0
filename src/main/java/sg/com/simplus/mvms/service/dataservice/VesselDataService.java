@@ -51,6 +51,11 @@ public class VesselDataService extends DataServiceEngine<VesselEntity,Vessel> {
         return vessel;
     }
 
+    public  List<Vessel> findByFleetIdInt(@Param("fleetIdInt") Integer fleetIdInt){
+        List<Vessel> vesselList = toDtoList(vesselRepository.findByFleetIdInt(fleetIdInt));
+        return vesselList;
+    }
+
     public Vessel save(Vessel vessel){
        return  toDto(vesselRepository.save(toEntity(vessel)) );
     }

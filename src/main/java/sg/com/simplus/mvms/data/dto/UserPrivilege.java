@@ -14,17 +14,6 @@ public class UserPrivilege {
 
     private String descriptionStr;
 
-    private Boolean activeBln;
-
-    private Integer createdByInt;
-
-    private Integer modifiedByInt;
-
-    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
-    private Date createdDateDti;
-
-    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
-    private Date modifiedDateDti;
 
     public Integer getIdInt() {
         return idInt;
@@ -57,44 +46,4 @@ public class UserPrivilege {
     public void setDescriptionStr(String descriptionStr) {
         this.descriptionStr = descriptionStr;
     }
-
-    public Boolean getActiveBln() {
-        return activeBln;
-    }
-
-    public void setActiveBln(Boolean activeBln) {
-        this.activeBln = activeBln;
-    }
-
-    public Integer getCreatedByInt() {
-        return createdByInt;
-    }
-
-    public void setCreatedByInt(Integer createdByInt) {
-        this.createdByInt = createdByInt;
-    }
-
-    public Integer getModifiedByInt() {
-        return modifiedByInt;
-    }
-
-    public void setModifiedByInt(Integer modifiedByInt) {
-        this.modifiedByInt = modifiedByInt;
-    }
-
-    public Date getCreatedDateDti() {
-        return createdDateDti;
-    }
-
-    public void setCreatedDateDti(Date createdDateDti) {
-        this.createdDateDti = createdDateDti;
-    }
-
-    public Date getModifiedDateDti() {
-        return modifiedDateDti;
-    }
-
-    public void setModifiedDateDti(Date modifiedDateDti) {
-        this.modifiedDateDti = modifiedDateDti;
-    }
-}
+ }

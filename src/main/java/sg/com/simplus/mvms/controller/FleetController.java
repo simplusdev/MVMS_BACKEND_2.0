@@ -9,6 +9,7 @@ import sg.com.simplus.mvms.framework.constant.StatusType;
 import sg.com.simplus.mvms.framework.response.ResponseMvms;
 import sg.com.simplus.mvms.manager.FleetManager;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Map;
 
@@ -25,6 +26,20 @@ public class FleetController extends FleetManager {
     @PostMapping(Constants.ENDPOINT_URI_FLEET_CREATE)
     public ResponseEntity<Object> createFleet(@RequestBody Fleet fleet) {
         return ResponseMvms.buildResponse(saveReturnMap(fleet), StatusType.RESULT_SUCCESS.getCode(), HttpStatus.OK,
+                StatusType.RESULT_SUCCESS.getMessage());
+    }
+
+    @PatchMapping(Constants.ENDPOINT_URI_FLEET_UPDATE)
+    public ResponseEntity<Object> updateFleet(@RequestBody Fleet fleet) {
+        return ResponseMvms.buildResponse(updateReturnMap(fleet), StatusType.RESULT_SUCCESS.getCode(), HttpStatus.OK,
+                StatusType.RESULT_SUCCESS.getMessage());
+    }
+
+    @Transactional
+    @DeleteMapping(Constants.ENDPOINT_URI_FLEET_DELETE_BY_ID)
+    public ResponseEntity<Object> deleteFleet(@PathVariable("id") Integer idInt) {
+        fleetBusinessService.deleteByIdInt(idInt);
+        return ResponseMvms.buildResponse(true, StatusType.RESULT_SUCCESS.getCode(), HttpStatus.OK,
                 StatusType.RESULT_SUCCESS.getMessage());
     }
 }

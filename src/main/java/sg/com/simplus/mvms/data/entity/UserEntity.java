@@ -16,8 +16,9 @@ public class UserEntity  implements Serializable {
     @Id
     private Integer idInt;
 
-    @Column(name = "user_group_id")
-    private Integer userGroupIdInt;
+    @ManyToOne(  )
+    @JoinColumn(foreignKey = @ForeignKey(name = "user_group_id"), name = "user_group_id")
+    private UserGroupEntity userGroup;
 
     @Column(name = "name")
     private String nameStr;
@@ -28,8 +29,6 @@ public class UserEntity  implements Serializable {
     @Column(name = "password")
     private String passwordStr;
 
-    @Column(name = "active")
-    private Integer activeInt;
 
     @Column(name = "created_by")
     private Integer createdByInt;
@@ -50,12 +49,12 @@ public class UserEntity  implements Serializable {
         this.idInt = idInt;
     }
 
-    public Integer getUserGroupIdInt() {
-        return userGroupIdInt;
+    public UserGroupEntity getUserGroup() {
+        return userGroup;
     }
 
-    public void setUserGroupIdInt(Integer userGroupIdInt) {
-        this.userGroupIdInt = userGroupIdInt;
+    public void setUserGroup(UserGroupEntity userGroup) {
+        this.userGroup = userGroup;
     }
 
     public String getNameStr() {
@@ -80,14 +79,6 @@ public class UserEntity  implements Serializable {
 
     public void setPasswordStr(String passwordStr) {
         this.passwordStr = passwordStr;
-    }
-
-    public Integer getActiveInt() {
-        return activeInt;
-    }
-
-    public void setActiveInt(Integer activeInt) {
-        this.activeInt = activeInt;
     }
 
     public Integer getCreatedByInt() {

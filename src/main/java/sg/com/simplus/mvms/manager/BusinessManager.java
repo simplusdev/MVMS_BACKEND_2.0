@@ -74,4 +74,7 @@ public class BusinessManager {
 
     @Autowired
     public UploadBusinessService uploadBusinessService;
+
+    @Autowired
+    public UserGroupBusinessService userGroupBusinessService;
 }

@@ -14,5 +14,10 @@ public class FleetManager extends BusinessManager {
         Map<String,Object> fleetMap = FleetMapper.getMap(fleetResult);
         return fleetMap;
     }
-    
+
+    public Map<String,Object> updateReturnMap(Fleet fleet) {
+        Fleet fleetResult = fleetBusinessService.update(fleet);
+        Map<String,Object> fleetMap = FleetMapper.getMap(fleetResult);
+        return fleetMap;
+    }
 }

@@ -10,7 +10,7 @@ public class UserGroup {
 
     private String nameStr;
 
-    private Boolean activeBln;
+    private String privilegesStr;
 
     private Integer createdByInt;
 
@@ -38,12 +38,12 @@ public class UserGroup {
         this.nameStr = nameStr;
     }
 
-    public Boolean getActiveBln() {
-        return activeBln;
+    public String getPrivilegesStr() {
+        return privilegesStr;
     }
 
-    public void setActiveBln(Boolean activeBln) {
-        this.activeBln = activeBln;
+    public void setPrivilegesStr(String privilegesStr) {
+        this.privilegesStr = privilegesStr;
     }
 
     public Integer getCreatedByInt() {
