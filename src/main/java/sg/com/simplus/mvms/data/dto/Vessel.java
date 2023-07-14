@@ -54,8 +54,6 @@ public class Vessel  implements Serializable {
 
     private String dateOfBuildStr;
 
-    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
-    private Date timestampDti;
 
     private String projectVesselTypeStr;
 
@@ -302,14 +300,6 @@ public class Vessel  implements Serializable {
 
     public void setDateOfBuildStr(String dateOfBuildStr) {
         this.dateOfBuildStr = dateOfBuildStr;
-    }
-
-    public Date getTimestampDti() {
-        return timestampDti;
-    }
-
-    public void setTimestampDti(Date timestampDti) {
-        this.timestampDti = timestampDti;
     }
 
     public String getProjectVesselTypeStr() {

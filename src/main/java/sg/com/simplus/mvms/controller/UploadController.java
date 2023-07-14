@@ -3,6 +3,7 @@ package sg.com.simplus.mvms.controller;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -24,6 +25,9 @@ public class UploadController extends UploadManager  {
     @Autowired
     private ObjectMapper objectMapper;
 
+    @Value("${dxf.converter.repository}")
+    String repository;
+
     @PostMapping(value = Constants.ENDPOINT_URI_UPLOAD_DXF,
             consumes = {MediaType.MULTIPART_FORM_DATA_VALUE},
             produces = {MediaType.APPLICATION_JSON_VALUE} )
@@ -38,7 +42,9 @@ public class UploadController extends UploadManager  {
         System.out.println("uploadDxf fileName: "+fileName);
         System.out.println("uploadDxf getOverlayMinPixelYDbl: "+dxfParam.getOverlayMinPixelYDbl());
         try {
-            file.transferTo( new File("C:\\SIMPLUS\\file\\mvms\\dxf_test\\repository\\Simplus\\VTBBMS\\Images\\Raw\\" + fileName));
+            //file.transferTo( new File("C:\\SIMPLUS\\file\\mvms\\dxf_test\\repository\\Simplus\\VTBBMS\\Images\\Raw\\" + fileName));
+            file.transferTo( new File(  repository + "Raw/"  + fileName));
+            System.out.println("uploadDxf write file path: "+repository + "Raw/"  + fileName);
             uploadBusinessService.convert(dxfParam,fileName);
         } catch (Exception e) {
             System.out.println("uploadDxf Exception: "+e.getMessage());

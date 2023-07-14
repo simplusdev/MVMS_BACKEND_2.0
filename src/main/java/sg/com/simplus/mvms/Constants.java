@@ -82,6 +82,7 @@ public class Constants {
 
     //endpoint for upload
     public static final String ENDPOINT_URI_UPLOAD_DXF = "/upload/dxf";
+    public static final String ENDPOINT_URI_UPLOAD_TEST = "/upload/test";
 
     //endpoint for user group
     public static final String ENDPOINT_URI_USER_GROUP_CREATE = "/user-group/create";

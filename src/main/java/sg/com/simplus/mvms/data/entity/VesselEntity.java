@@ -79,8 +79,6 @@ public class VesselEntity  implements Serializable {
     @Column(name = "date_of_build")
     private String dateOfBuildStr;
 
-    @Column(name = "timestamp")
-    private Date timestampDti;
 
     @Column(name = "project_vessel_type")
     private String projectVesselTypeStr;
@@ -320,14 +318,6 @@ public class VesselEntity  implements Serializable {
 
     public void setDateOfBuildStr(String dateOfBuildStr) {
         this.dateOfBuildStr = dateOfBuildStr;
-    }
-
-    public Date getTimestampDti() {
-        return timestampDti;
-    }
-
-    public void setTimestampDti(Date timestampDti) {
-        this.timestampDti = timestampDti;
     }
 
     public String getProjectVesselTypeStr() {

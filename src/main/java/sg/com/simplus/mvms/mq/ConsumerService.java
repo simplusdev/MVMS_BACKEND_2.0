@@ -195,12 +195,13 @@ public class ConsumerService {
 //         //   System.out.println("found vesselDb.getMmsiInt() 563002360 sending email");
 //        }
         // test dummy data
-        if(positionReportLast!=null)
-        geofenceUtil.checkGeofenceInfringement(vesselDb,positionReportLast);
-        try {
-            producerService.sendToVesselTopic(vesselDb);
-        } catch (JsonProcessingException e) {
-            throw new RuntimeException(e);
+        if(positionReportLast!=null) {
+            geofenceUtil.checkGeofenceInfringement(vesselDb, positionReportLast);
+            try {
+                producerService.sendToVesselTopic(vesselDb);
+            } catch (JsonProcessingException e) {
+                throw new RuntimeException(e);
+            }
         }
 
     }

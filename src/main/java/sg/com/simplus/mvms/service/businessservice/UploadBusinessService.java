@@ -52,6 +52,9 @@ public class UploadBusinessService {
     @Value("${dxf.converter.tilePath}")
     String tilePath;
 
+    @Value("${dxf.converter.folderSeparator}")
+    String folderSeparator;
+
 
     public void convert(DxfParam dxfParam, String filename) {
         System.out.println("UploadBusinessService convert filename: "+filename);
@@ -62,9 +65,12 @@ public class UploadBusinessService {
          */
         String GENERATION_MODE = dxfParam.getGenerationModeStr();
 
-        filePath = repository + filePath;
-        processFilePath = repository + processFilePath;
-        tilePath = repository + tilePath;
+//        filePath = repository + filePath;
+//        processFilePath = repository + processFilePath;
+//        tilePath = repository + tilePath;
+        filePath = repository + "Raw/";
+        processFilePath = repository + "Temp/";
+        tilePath = repository + "tiles/1.0.0/DXF_temp/";
         System.out.println("UploadBusinessService tilePath  : "+tilePath);
 
         double overlay_min_longitude = dxfParam.getOverlayMinLongitudeDbl();
@@ -441,7 +447,9 @@ public class UploadBusinessService {
                                     int n_cutting_pos_x = cutting_position_x.size();
                                     int n_cutting_pos_y = cutting_position_y.size();
                                     for (int x_idx = 0; x_idx <= n_cutting_pos_x; x_idx++) {
-                                        String destFolder = tilePath + String.format("%d\\%d", zoomLevel, (x_offset + x_idx));
+                                        //String destFolder = tilePath + String.format("%d\\%d", zoomLevel, (x_offset + x_idx));
+                                        String destFolder = tilePath + String.format("%d"+folderSeparator+"%d", zoomLevel, (x_offset + x_idx));
+
                                         File f = new File(destFolder);
                                         if (f.exists() && f.isDirectory()) {
                                             purgeDirectory(f);
@@ -535,7 +543,7 @@ public class UploadBusinessService {
 //                                        }
                                             gr.drawImage(tile, dx1, dy1, dx2, dy2, sx1, sy1, sx2, sy2, null);
                                             gr.dispose();
-                                            ImageIO.write(bufferedImage, "PNG", new File(destFolder + "\\" + (y_offset + y_idx) + ".png"));
+                                            ImageIO.write(bufferedImage, "PNG", new File(destFolder + folderSeparator + (y_offset + y_idx) + ".png"));
 
                                         }
                                     }
@@ -719,7 +727,7 @@ public class UploadBusinessService {
                                             int n_cutting_pos_x = cutting_position_x.size();
                                             int n_cutting_pos_y = cutting_position_y.size();
                                             for (int x_idx = offset_x_cutting_position_0; x_idx <= n_cutting_pos_x - offset_x_cutting_position_1; x_idx++) {
-                                                String destFolder = tilePath + String.format("%d\\%d", zoomLevel, (x_offset + x_idx));
+                                                String destFolder = tilePath + String.format("%d"+folderSeparator+"%d", zoomLevel, (x_offset + x_idx));
                                                 File f = new File(destFolder);
                                                 if (f.exists() && f.isDirectory() && sub_y == 0) {
                                                     purgeDirectory(f);
@@ -801,8 +809,8 @@ public class UploadBusinessService {
                                                     }
                                                     gr.drawImage(tile, dx1, dy1, dx2, dy2, sx1, sy1, sx2, sy2, null);
                                                     gr.dispose();
-                                                    System.out.println("drawImage: "+destFolder + "\\" + (y_offset + y_idx) + ".png");
-                                                    ImageIO.write(bufferedImage, "PNG", new File(destFolder + "\\" + (y_offset + y_idx) + ".png"));
+                                                    System.out.println("drawImage: "+destFolder + folderSeparator + (y_offset + y_idx) + ".png");
+                                                    ImageIO.write(bufferedImage, "PNG", new File(destFolder + folderSeparator + (y_offset + y_idx) + ".png"));
                                                 }
                                             }
                                         }
